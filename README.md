@@ -51,7 +51,7 @@ Open a terminal, clone the repository, update the dependencies and build the pac
 
 ### Rviz visualization examples
 
- - [zed_display_rviz] (https://github.com/stereolabs/zed-ros-examples/tree/master/zed_display_rviz/README.md)
+ - Example launch files to start a preconfigured instance of Rviz displaying all the ZED Wrapper node information: [zed_display_rviz](https://github.com/stereolabs/zed-ros-examples/tree/master/zed_display_rviz/README.md)
 
 ### Tutorials
 
