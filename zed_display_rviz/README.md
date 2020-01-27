@@ -34,13 +34,16 @@ Follow the [zed-ros-examples](https://github.com/stereolabs/zed-ros-examples) in
 ### Execution
 
 If you own a ZED camera launch:
-    $ roslaunch zed_display display_zed.launch
+
+    `$ roslaunch zed_display display_zed.launch`
 
 If you own a ZED Mini camera launch:
-    $ roslaunch zed_display display_zedm.launch
+
+    `$ roslaunch zed_display display_zedm.launch`
 
 If you own a ZED 2 camera launch:
-    $ roslaunch zed_display display_zed2.launch
+
+    `$ roslaunch zed_display display_zed2.launch`
 
 ![ZED rendering on Rviz](images/depthcloud-RGB.jpg)
 ![ZED rendering on Rviz](images/ZEDM-Rviz.jpg)
