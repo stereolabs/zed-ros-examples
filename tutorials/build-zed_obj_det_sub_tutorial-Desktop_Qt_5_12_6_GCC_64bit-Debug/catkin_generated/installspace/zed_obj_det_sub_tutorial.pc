@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: zed_obj_det_sub_tutorial
-Description: Description of zed_obj_det_sub_tutorial
-Version: 3.0.0
-Cflags: 
-Libs: -L/usr/local/lib 
-Requires: 
