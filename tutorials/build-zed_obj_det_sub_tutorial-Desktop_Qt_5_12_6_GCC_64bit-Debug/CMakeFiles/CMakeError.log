@@ -1,0 +1,41 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/walter/devel/ros1_ws/src/zed-ros-examples/tutorials/build-zed_obj_det_sub_tutorial-Desktop_Qt_5_12_6_GCC_64bit-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_5c78a"
+[1/2] Building C object CMakeFiles/cmTC_5c78a.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_5c78a
+FAILED: cmTC_5c78a 
+: && /usr/bin/clang-6.0   -rdynamic CMakeFiles/cmTC_5c78a.dir/CheckSymbolExists.c.o  -o cmTC_5c78a   && :
+CMakeFiles/cmTC_5c78a.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x19): undefined reference to `pthread_create'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+File /home/walter/devel/ros1_ws/src/zed-ros-examples/tutorials/build-zed_obj_det_sub_tutorial-Desktop_Qt_5_12_6_GCC_64bit-Debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/walter/devel/ros1_ws/src/zed-ros-examples/tutorials/build-zed_obj_det_sub_tutorial-Desktop_Qt_5_12_6_GCC_64bit-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_fbd97"
+[1/2] Building C object CMakeFiles/cmTC_fbd97.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_fbd97
+FAILED: cmTC_fbd97 
+: && /usr/bin/clang-6.0 -DCHECK_FUNCTION_EXISTS=pthread_create  -rdynamic CMakeFiles/cmTC_fbd97.dir/CheckFunctionExists.c.o  -o cmTC_fbd97  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+

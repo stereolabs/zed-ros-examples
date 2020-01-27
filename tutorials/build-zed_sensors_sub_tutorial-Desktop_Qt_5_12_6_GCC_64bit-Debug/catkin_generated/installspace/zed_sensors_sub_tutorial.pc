@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: zed_sensors_sub_tutorial
+Description: Description of zed_sensors_sub_tutorial
+Version: 3.0.0
+Cflags: 
+Libs: -L/usr/local/lib 
+Requires: 

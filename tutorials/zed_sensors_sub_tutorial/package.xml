@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>zed_sensors_sub_tutorial</name>
+  <version>3.0.0</version>
+  <description>This package is a tutorial showing how to subscribe to sensors data topic published by a ZED node</description>
+
+  <maintainer email="support@stereolabs.com">STEREOLABS</maintainer>
+  <license>MIT</license>
+
+  <url type="website">http://stereolabs.com/</url>
+  <url type="repository">https://github.com/stereolabs/zed-ros-examples</url>
+  <url type="bugtracker">https://github.com/stereolabs/zed-ros-examples/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>sensor_msgs</depend>
+
+  <exec_depend>rqt_gui</exec_depend>
+  <exec_depend>rqt_plot</exec_depend>
+  <exec_depend>zed_wrapper</exec_depend>
+</package>

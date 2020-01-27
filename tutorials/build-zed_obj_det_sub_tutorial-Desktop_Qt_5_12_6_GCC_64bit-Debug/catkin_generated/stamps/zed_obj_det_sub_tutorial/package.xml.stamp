@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>zed_obj_det_sub_tutorial</name>
+  <version>3.0.0</version>
+  <description>This package is a tutorial showing how to subscribe to ZED Detect Object messages</description>
+
+  <maintainer email="support@stereolabs.com">STEREOLABS</maintainer>
+  <license>MIT</license>
+
+  <url type="website">http://stereolabs.com/</url>
+  <url type="repository">https://github.com/stereolabs/zed-ros-tutorials</url>
+  <url type="bugtracker">https://github.com/stereolabs/zed-ros-tutorials/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>zed_wrapper</depend>
+</package>

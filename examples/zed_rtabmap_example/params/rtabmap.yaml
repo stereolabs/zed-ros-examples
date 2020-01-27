@@ -1,0 +1,71 @@
+# RTAB-Map configuration
+
+subscribe_depth:        true
+subscribe_rgbd:         false
+subscribe_stereo:       false
+subscribe_stereo:       false
+subscribe_scan:         false
+subscribe_scan_cloud:   false
+subscribe_user_data:    false
+subscribe_odom_info:    false
+
+database_path:      "~/.ros/rtabmap.db"
+config_path:        "~/.ros/rtabmap.cfg"
+
+frame_id:       "base_link"
+map_frame_id:   "map"
+odom_frame_id:  "odom"                   # odometry from odom msg to have covariance - Remapped by launch file
+odom_tf_angular_variance:  0.001     # If TF is used to get odometry, this is the default angular variance
+odom_tf_linear_variance:   0.001     # If TF is used to get odometry, this is the default linear variance
+tf_delay:       0.02
+publish_tf:     true                 # Set to false if fusing different poses (map->odom) with UKF
+
+odom_sensor_sync:               false
+wait_for_transform_duration:    0.2
+approx_sync:                    true
+
+queue_size: 10
+
+scan_normal_k:  0
+
+Grid:
+    3D:                     true
+    FlatObstacleDetected:   true
+    MapFrameProjection:     false
+    GroundIsObstacle:       false
+    PreVoxelFiltering:      true
+    RayTracing:             true
+    FromDepth:              true
+    NormalsSegmentation:    false
+    CellSize:               0.05
+    ClusterRadius:          0.1
+    MinClusterSize:         3
+    DepthDecimation:        1
+    DepthRoiRatios:         [0.0, 0.0, 0.0, 0.0]
+    FootprintHeight:        2.0
+    FootprintLength:        0.18
+    FootprintWidth:         0.18
+    MaxGroundAngle:         30.0
+    MinGroundHeight:        -0.5
+    MaxGroundHeight:        -0.4
+    MaxObstacleHeight:      0.1
+    NoiseFilteringMinNeighbors: 5
+    NoiseFilteringRadius:   0.1
+    NormalK:                20
+    RangeMin:               0.7
+    RangeMax:               3.0
+
+GridGlobal:
+    Eroded:                 false       # Erode obstacle cells
+    FootprintRadius:        0.18        # Footprint radius (m) used to clear all obstacles under the graph
+    FullUpdate:             true        # When the graph is changed, the whole map will be reconstructed instead of moving individually each cells of the map. Also, data added to cache won't be released after updating the map. This process is longer but more robust to drift that would erase some parts of the map when it should not
+    MaxNodes:               0           # Maximum nodes assembled in the map starting from the last node (0=unlimited)
+    MinSize:                1.0        # Minimum map size (m)
+    OccupancyThr:           0.55        # Occupancy threshold (value between 0 and 1)
+    ProbClampingMax:        0.971       # Probability clamping maximum (value between 0 and 1)
+    ProbClampingMin:        0.1192      # Probability clamping minimum (value between 0 and 1)
+    ProbHit:                0.7         # Probability of a hit (value between 0.5 and 1)
+    ProbMiss:               0.4         # Probability of a miss (value between 0 and 0.5)
+    UpdateError:            0.01        # Graph changed detection error (m). Update map only if poses in new optimized graph have moved more than this value
+
+
