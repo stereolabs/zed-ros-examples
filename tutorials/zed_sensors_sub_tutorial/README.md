@@ -1,4 +1,4 @@
-# Depth subscription tutorial
+# Sensor Data Tutorial
 
 In this tutorial you will learn how to write a simple node that subscribes to sensor data messages from ZED2 or ZED-M and print the values to console.
 
