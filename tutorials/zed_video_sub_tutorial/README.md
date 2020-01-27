@@ -4,4 +4,4 @@ In this tutorial you will learn how to write a simple node that subscribes to me
 
 ![](../images/tutorial_video.jpg)
 
-The complete documentation is available on the [Stereolabs website](https://docs.stereolabs.com/integrations/ros/video/)
+The complete documentation is available on the [Stereolabs website](https://www.stereolabs.com/docs/ros/video/#video-subscribing-in-c)
