@@ -6,7 +6,7 @@ The [ar_track_alvar](http://wiki.ros.org/ar_track_alvar) package is a ROS wrappe
 
 ## Installation
 
-Follow the [install guide](https://github.com/stereolabs/zed-ros-tutorials/tree/master/README.md)
+Follow the [install guide](https://github.com/stereolabs/zed-ros-examples/blob/master/README.md#build-the-program)
 
 ## Run the program
 
