@@ -4,7 +4,7 @@ This package shows how to use the ZED Wrapper with [RTAB-map](http://introlab.gi
 
 ## Installation
 
-Follow the [install guide](https://github.com/stereolabs/zed-ros-tutorials/tree/master/README.md)
+Follow the [install guide](https://github.com/stereolabs/zed-ros-examples/blob/master/README.md#build-the-program)
 
 ## Run the program
 
