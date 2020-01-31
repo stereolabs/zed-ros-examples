@@ -100,7 +100,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
       Name: RobotModel
-      Robot Description: /zed/zed_description
+      Robot Description: /zedm/zed_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
@@ -149,7 +149,7 @@ Visualization Manager:
         - Class: rviz/Camera
           Enabled: true
           Image Rendering: background and overlay
-          Image Topic: /zed/zed_node/rgb/image_rect_color
+          Image Topic: /zedm/zed_node/rgb/image_rect_color
           Name: Camera view
           Overlay Alpha: 0.5
           Queue Size: 1
@@ -186,7 +186,7 @@ Visualization Manager:
           Zoom Factor: 1
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed/zed_node/left/image_rect_color
+          Image Topic: /zedm/zed_node/left/image_rect_color
           Max Value: 10
           Median window: 5
           Min Value: 0
@@ -198,7 +198,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed/zed_node/right/image_rect_color
+          Image Topic: /zedm/zed_node/right/image_rect_color
           Max Value: 10
           Median window: 5
           Min Value: 0
@@ -237,7 +237,7 @@ Visualization Manager:
           Size (Pixels): 1
           Size (m): 0.009999999776482582
           Style: Points
-          Topic: /zed/zed_node/point_cloud/cloud_registered
+          Topic: /zedm/zed_node/point_cloud/cloud_registered
           Unreliable: true
           Use Fixed Frame: true
           Use rainbow: true
@@ -255,11 +255,11 @@ Visualization Manager:
           Channel Name: intensity
           Class: rviz/DepthCloud
           Color: 255; 255; 255
-          Color Image Topic: /zed/zed_node/rgb/image_rect_color
+          Color Image Topic: /zedm/zed_node/rgb/image_rect_color
           Color Transformer: RGB8
           Color Transport Hint: raw
           Decay Time: 0
-          Depth Map Topic: /zed/zed_node/depth/depth_registered
+          Depth Map Topic: /zedm/zed_node/depth/depth_registered
           Depth Map Transport Hint: raw
           Enabled: false
           Invert Rainbow: false
@@ -282,7 +282,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed/zed_node/depth/depth_registered
+          Image Topic: /zedm/zed_node/depth/depth_registered
           Max Value: 20
           Median window: 5
           Min Value: 0
@@ -294,7 +294,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed/zed_node/confidence/confidence_image
+          Image Topic: /zedm/zed_node/confidence/confidence_image
           Max Value: 10
           Median window: 5
           Min Value: 0
@@ -306,7 +306,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed/zed_node/confidence/confidence_map
+          Image Topic: /zedm/zed_node/confidence/confidence_map
           Max Value: 100
           Median window: 5
           Min Value: 0
@@ -351,7 +351,7 @@ Visualization Manager:
             Shaft Length: 0.30000001192092896
             Shaft Radius: 0.019999999552965164
             Value: Arrow
-          Topic: /zed/zed_node/odom
+          Topic: /zedm/zed_node/odom
           Unreliable: true
           Value: false
         - Alpha: 1
@@ -366,7 +366,7 @@ Visualization Manager:
           Shaft Length: 0.30000001192092896
           Shaft Radius: 0.019999999552965164
           Shape: Arrow
-          Topic: /zed/zed_node/pose
+          Topic: /zedm/zed_node/pose
           Unreliable: false
           Value: false
         - Alpha: 1
@@ -396,7 +396,7 @@ Visualization Manager:
           Shaft Length: 0.30000001192092896
           Shaft Radius: 0.019999999552965164
           Shape: Arrow
-          Topic: /zed/zed_node/pose_with_covariance
+          Topic: /zedm/zed_node/pose_with_covariance
           Unreliable: false
           Value: true
         - Alpha: 1
@@ -419,7 +419,7 @@ Visualization Manager:
           Radius: 0.029999999329447746
           Shaft Diameter: 0.009999999776482582
           Shaft Length: 0.05000000074505806
-          Topic: /zed/zed_node/path_odom
+          Topic: /zedm/zed_node/path_odom
           Unreliable: true
           Value: true
         - Alpha: 1
@@ -442,7 +442,7 @@ Visualization Manager:
           Radius: 0.029999999329447746
           Shaft Diameter: 0.009999999776482582
           Shaft Length: 0.05000000074505806
-          Topic: /zed/zed_node/path_map
+          Topic: /zedm/zed_node/path_map
           Unreliable: true
           Value: true
         - Acceleration properties:
@@ -464,7 +464,7 @@ Visualization Manager:
           Class: rviz_imu_plugin/Imu
           Enabled: true
           Name: Imu
-          Topic: /zed/zed_node/imu/data
+          Topic: /zedm/zed_node/imu/data
           Unreliable: true
           Value: true
           fixed_frame_orientation: true
@@ -497,7 +497,7 @@ Visualization Manager:
           Size (Pixels): 3
           Size (m): 0.009999999776482582
           Style: Points
-          Topic: /zed/zed_node/point_cloud/fused_cloud_registered
+          Topic: /zedm/zed_node/point_cloud/fused_cloud_registered
           Unreliable: true
           Use Fixed Frame: true
           Use rainbow: true

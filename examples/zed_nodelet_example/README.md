@@ -4,7 +4,7 @@
 
 ## Installation
 
-Follow the [install guide](https://github.com/stereolabs/zed-ros-tutorials/tree/master/README.md)
+Follow the [install guide](https://github.com/stereolabs/zed-ros-examples/tree/master/README.md)
 
 ## Run the program
 
