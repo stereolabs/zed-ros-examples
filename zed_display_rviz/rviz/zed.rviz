@@ -463,7 +463,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Points
-      Topic: /zed/zed_node/point_cloud/fused_cloud_registered
+      Topic: /zed/zed_node/mapping/fused_cloud
       Unreliable: true
       Use Fixed Frame: true
       Use rainbow: true
