@@ -17,3 +17,5 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 ## Build 
 add_executable(zed_obj_det_sub src/zed_obj_det_sub_tutorial.cpp)
 target_link_libraries(zed_obj_det_sub ${catkin_LIBRARIES})
+add_dependencies(zed_obj_det_sub ${zed_wrapper_EXPORTED_TARGETS})
+add_dependencies(zed_obj_det_sub ${catkin_EXPORTED_TARGETS})
