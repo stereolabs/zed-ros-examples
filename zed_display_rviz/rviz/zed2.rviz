@@ -4,11 +4,9 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
         - /TF1/Frames1
         - /Video1/Camera view1
         - /Video1/Camera view1/Visibility1
-        - /Depth1
         - /Depth1/DepthCloud1/Auto Size1
         - /Depth1/DepthCloud1/Occlusion Compensation1
         - /Depth1/Lidar View1/Autocompute Value Bounds1
@@ -116,7 +114,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
       Name: RobotModel
-      Robot Description: /zed2/zed_description
+      Robot Description: /zed2/zed2_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
@@ -149,9 +147,9 @@ Visualization Manager:
         zed2_right_camera_optical_frame:
           Value: false
         zed2_temp_left_link:
-          Value: true
+          Value: false
         zed2_temp_right_link:
-          Value: true
+          Value: false
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
@@ -609,25 +607,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.6390185356140137
+      Distance: 3.193673610687256
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.40108245611190796
-        Y: -0.14288516342639923
-        Z: 0.22172576189041138
+        X: 0.8099099397659302
+        Y: 0.42103394865989685
+        Z: 0.6824659109115601
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.19539768993854523
+      Pitch: 0.12039769440889359
       Target Frame: base_link
       Value: Orbit (rviz)
-      Yaw: 2.963592052459717
+      Yaw: 2.76859188079834
     Saved: ~
 Window Geometry:
   Camera view:

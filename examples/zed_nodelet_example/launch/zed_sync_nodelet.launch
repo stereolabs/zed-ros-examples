@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)"  args="manager" output="screen" />
 
         <!-- Load ZED wrapper nodelet -->
-        <include file="$(find zed_wrapper)/launch/zed_camera_nodelet.launch">
+        <include file="$(find zed_wrapper)/launch/include/zed_camera_nodelet.launch.xml">
             <arg name="nodelet_manager_name"            value="$(arg nodelet_manager_name)" />
             <arg name="camera_name"                     value="$(arg camera_name)" />
             <arg name="svo_file"                        value="$(arg svo_file)" />
