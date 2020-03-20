@@ -18,9 +18,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <launch>
     <!-- Camera Model and Name -->
-    <arg name="camera_name"           default="zed2" /> <!-- The name you want -->
+    <arg name="camera_name"           default="zed" /> <!-- The name you want -->
     <arg name="camera_model"          default="zed2" /> <!-- 'zed' or 'zedm' or 'zed2' -->
-    <arg name="zed_node_name"         default="zed_node" />
+    <arg name="zed_nodelet_name"         default="zed_nodelet" />
 
     <!-- Load SVO file -->
     <arg name="svo_file"              default="" /><!-- <arg name="svo_file" default="path/to/svo/file.svo"> -->
@@ -54,12 +54,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)"  args="manager" output="screen" />
 
         <!-- Load ZED wrapper nodelet -->
-        <include file="$(find zed_wrapper)/launch/include/zed_camera_nodelet.launch.xml">
+        <include file="$(find zed_wrapper)/launch/include/zed_camera_nodelet.launch">
             <arg name="nodelet_manager_name"            value="$(arg nodelet_manager_name)" />
             <arg name="camera_name"                     value="$(arg camera_name)" />
             <arg name="svo_file"                        value="$(arg svo_file)" />
             <arg name="stream"                          value="$(arg stream)" />
-            <arg name="node_name"                       value="$(arg zed_node_name)" />
+            <arg name="node_name"                       value="$(arg zed_nodelet_name)" />
             <arg name="camera_model"                    value="$(arg camera_model)" />
             <arg name="base_frame"                      value="$(arg base_frame)" />
             <arg name="publish_urdf"                    value="$(arg publish_urdf)" />
@@ -77,7 +77,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
              <param name="scan_height" value="10"/>
              <param name="output_frame_id" value="$(arg camera_name)_left_camera_frame"/>
              <param name="range_min" value="0.1"/>
-             <remap from="image" to="$(arg zed_node_name)/depth/depth_registered"/>
+             <remap from="image" to="$(arg zed_nodelet_name)/depth/depth_registered"/>
         </node>
     </group>
 </launch>
