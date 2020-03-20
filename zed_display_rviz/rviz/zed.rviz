@@ -7,7 +7,6 @@ Panels:
         - /Global Options1
         - /RobotModel1/Links1
         - /TF1/Frames1
-        - /Depth1
         - /Depth1/DepthCloud1/Occlusion Compensation1
         - /Pose1/Odometry1/Covariance1
         - /Pose1/Odometry1/Covariance1/Position1
@@ -111,7 +110,7 @@ Visualization Manager:
         odom:
           Value: true
         zed_camera_center:
-          Value: false
+          Value: true
         zed_left_camera_frame:
           Value: false
         zed_left_camera_optical_frame:
@@ -496,25 +495,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 7.27499532699585
+      Distance: 3.6228373050689697
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.9739524126052856
-        Y: -0.7250372767448425
-        Z: -0.6308943629264832
+        X: 2.0602869987487793
+        Y: -0.5852259397506714
+        Z: -0.15034236013889313
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7047958374023438
+      Pitch: 0.2097957730293274
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.660412549972534
+      Yaw: 2.835416793823242
     Saved: ~
 Window Geometry:
   Camera view:
@@ -544,5 +543,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1869
-  X: 51
+  X: 1971
   Y: 27
