@@ -24,6 +24,7 @@
  */
 
 #include <ros/ros.h>
+
 #include <zed_interfaces/ObjectStamped.h>
 #include <zed_interfaces/Objects.h>
 

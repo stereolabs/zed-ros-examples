@@ -5,6 +5,4 @@ In this tutorial you will learn how to write a simple node that subscribes to me
 
 ![](../images/tutorial_tracking.jpg)
 
-In this tutorial you will learn how to write a simple node that subscribes to messages of type `geometry_msgs/PoseStamped` and `nav_msgs/Odometry` to retrieve the position and the orientation of the ZED camera in the map and in the odometry frames.
-
 The complete documentation is available on the [Stereolabs website](https://www.stereolabs.com/docs/ros/position/#position-subscribing-in-c)
