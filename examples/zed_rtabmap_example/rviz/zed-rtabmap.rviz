@@ -87,6 +87,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        zed_baro_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         zed_camera_center:
           Alpha: 1
           Show Axes: false
@@ -100,11 +104,23 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        zed_mag_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         zed_right_camera_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
         zed_right_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_temp_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_temp_right_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
