@@ -17,19 +17,19 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <launch>
-    <arg name="zed_namespace"           default="zed" />
+    <arg name="camera_name"          default="zed" />
 
     <arg name="svo_file"              	default="" /> <!-- <arg name="svo_file" default="path/to/svo/file.svo"> -->
 
     <arg name="zed_node_name"           default="zed_node" />
     <arg name="camera_model"         	default="zed2" />
 
-    <group ns="$(arg zed_namespace)">
+    <group ns="$(arg camera_name)">
         <!-- Pre configured RVIZ -->
         <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zed_ar_track_alvar_example)/rviz/zed_ar_track_alvar_example.rviz" output="screen"/>
 
         <!-- ZED Wrapper Node-->
-        <include file="$(find zed_wrapper)/launch/zed_camera.launch">
+        <include file="$(find zed_wrapper)/launch/include/zed_camera.launch.xml">
             <arg name="svo_file"            value="$(arg svo_file)" />
             <arg name="node_name"           value="$(arg zed_node_name)" />
             <arg name="camera_model"        value="$(arg camera_model)" />
