@@ -18,7 +18,7 @@ odom_frame_id:  "odom"                   # odometry from odom msg to have covari
 odom_tf_angular_variance:  0.001     # If TF is used to get odometry, this is the default angular variance
 odom_tf_linear_variance:   0.001     # If TF is used to get odometry, this is the default linear variance
 tf_delay:       0.02
-publish_tf:     true                 # Set to false if fusing different poses (map->odom) with UKF
+publish_tf:     false                # Set to false if fusing different poses (map->odom) with UKF
 
 odom_sensor_sync:               false
 wait_for_transform_duration:    0.2
