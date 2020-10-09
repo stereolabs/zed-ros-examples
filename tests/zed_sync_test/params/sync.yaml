@@ -1,0 +1,10 @@
+# params/sync.yaml
+# Parameters for the nodelet zed_nodelets/ZEDTestRGBDSync
+---
+
+zed_nodelet_name:       'zed_node'      # Default name of the ZEDTestRGBDSync publishing topics (normally overwritten in launch file)
+approx_sync:            false           # Use approximate synchronization for the input topics. If `false` all the message must have the same timestamp, this is almost impossible if subscribing also to IMU and Magnetometer topics and the parameter `sensors_timestamp_sync` is false in the ZED nodelet
+queue_size:             1               # Size of message queue for each synchronized topic (more than 1 second of buffer for IMU data)
+verbose:                false           # verbose info
+save_frames:            false           # save all the overlayed sync frames
+save_path:              "~/ros_zed_sync_test"
