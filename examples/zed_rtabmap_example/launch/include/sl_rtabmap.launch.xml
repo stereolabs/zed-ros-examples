@@ -8,12 +8,12 @@
     <arg unless="$(arg localization)" name="args" default="--delete_db_on_start"/>
 
     <!-- RGB-D related topics -->
-    <arg name="rgb_topic"               default="zed/zed_node/rgb/image_rect_color" />
-    <arg name="depth_topic"             default="zed/zed_node/depth/depth_registered" />
-    <arg name="camera_info_topic"       default="zed/zed_node/rgb/camera_info" />
-    <arg name="depth_camera_info_topic" default="zed/zed_node/depth/camera_info" />
+    <arg name="rgb_topic"               default="/zed/zed_node/rgb/image_rect_color" />
+    <arg name="depth_topic"             default="/zed/zed_node/depth/depth_registered" />
+    <arg name="camera_info_topic"       default="/zed/zed_node/rgb/camera_info" />
+    <arg name="depth_camera_info_topic" default="/zed/zed_node/depth/camera_info" />
 
-    <arg name="odom_topic"              default="zed/zed_node/odom" />    <!-- Odometry topic name -->
+    <arg name="odom_topic"              default="/zed/zed_node/odom" />    <!-- Odometry topic name -->
     <!--<arg name="odom_topic"              default="odom" />-->
 
     <!-- Visual Odometry -->
