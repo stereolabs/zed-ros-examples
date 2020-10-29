@@ -72,7 +72,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </include>
 
         <!-- Start zed_nodelets/ZEDTestRGBDSync -->
-        <node pkg="nodelet" type="nodelet" name="$(arg zed_nodelet_name)_sync" args="load zed_test_nodelets/ZEDTestRGBDSync $(arg nodelet_manager_name)" output="screen">
+        <node pkg="nodelet" type="nodelet" name="$(arg zed_nodelet_name)_sync_test" args="load zed_test_nodelets/ZEDTestRGBDSync $(arg nodelet_manager_name)" output="screen">
             <rosparam file="$(find zed_sync_test)/params/sync.yaml" command="load" />
 
             <!-- ZED Nodelet Name -->
@@ -83,10 +83,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </node>
         
         <!-- image_view node to visualize the results -->
-	    <node pkg="image_view" type="image_view" name="$(arg zed_nodelet_name)_result_view" output="screen">
-		    <remap from="image" to="zed_nodelet_sync_test/sync_image"/>
-		    <param name="autosize"                 value="true" />
-		    <param name="window_name"              value="RGB/Depth Sync Test" />
-	    </node>
+        <node pkg="image_view" type="image_view" name="$(arg zed_nodelet_name)_result_view" output="screen">
+            <remap from="image" to="zed_nodelet_sync_test/sync_image"/>
+            <param name="autosize"                 value="true" />
+            <param name="window_name"              value="RGB/Depth Sync Test" />
+        </node>
     </group>
 </launch>
