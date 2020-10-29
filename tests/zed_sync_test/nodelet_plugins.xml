@@ -1,0 +1,7 @@
+<library path="lib/libZEDSyncTest">
+  <class name="zed_test_nodelets/ZEDTestRGBDSync"
+         type="zed_test_nodelets::ZEDTestRGBDSync"
+         base_class_type="nodelet::Nodelet">
+    <description>Nodelet to test ZED RGBD Sync.</description>
+  </class>
+</library>

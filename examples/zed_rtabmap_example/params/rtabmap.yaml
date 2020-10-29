@@ -20,7 +20,7 @@ odom_tf_linear_variance:   0.001     # If TF is used to get odometry, this is th
 tf_delay:       0.02
 publish_tf:     false                # Set to false if fusing different poses (map->odom) with UKF
 
-odom_sensor_sync:               false
+odom_sensor_sync:               true
 wait_for_transform_duration:    0.2
 approx_sync:                    true
 
