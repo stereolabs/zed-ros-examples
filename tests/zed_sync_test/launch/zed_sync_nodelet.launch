@@ -81,5 +81,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <param name="save_frames"                   value="false" />
             <param name="save_path"                     value="~/ros_zed_sync_test" />
         </node>
+        
+        <!-- image_view node to visualize the results -->
+	    <node pkg="image_view" type="image_view" name="$(arg zed_nodelet_name)_result_view" output="screen">
+		    <remap from="image" to="zed_nodelet_sync_test/sync_image"/>
+		    <param name="autosize"                 value="true" />
+		    <param name="window_name"              value="RGB/Depth Sync Test" />
+	    </node>
     </group>
 </launch>
