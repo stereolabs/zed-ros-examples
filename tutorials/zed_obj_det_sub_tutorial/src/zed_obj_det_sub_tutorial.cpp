@@ -25,14 +25,14 @@
 
 #include <ros/ros.h>
 
-#include <zed_interfaces/ObjectStamped.h>
-#include <zed_interfaces/Objects.h>
+#include <zed_interfaces/ObjectsStamped.h>
+#include <zed_interfaces/Object.h>
 
 /**
  * Subscriber callbacks. The argument of the callback is a constant pointer to the received message
  */
 
-void objectListCallback(const zed_interfaces::Objects::ConstPtr& msg) {
+void objectListCallback(const zed_interfaces::ObjectsStamped::ConstPtr& msg) {
     ROS_INFO( "***** New object list *****");
     for(int i=0; i<msg->objects.size();i++)
     {
@@ -43,9 +43,9 @@ void objectListCallback(const zed_interfaces::Objects::ConstPtr& msg) {
                          << " ["
                          << msg->objects[i].label_id
                          << "] - Pos. ["
-                         << msg->objects[i].position.x << ","
-                         << msg->objects[i].position.y << ","
-                         << msg->objects[i].position.z << "] [m]"
+                         << msg->objects[i].position[0] << ","
+                         << msg->objects[i].position[1] << ","
+                         << msg->objects[i].position[2] << "] [m]"
                          << "- Conf. "
                          << msg->objects[i].confidence
                          << " - Tracking state: "
