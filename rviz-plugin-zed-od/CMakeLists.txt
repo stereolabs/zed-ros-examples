@@ -1,155 +1,100 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.0.2)
 project(rviz_plugin_zed_od)
 
-# Default to C99
-if(NOT CMAKE_C_STANDARD)
-  set(CMAKE_C_STANDARD 99)
-endif()
+find_package(catkin REQUIRED 
+  COMPONENTS 
+  rviz
+  zed_interfaces
+)
+catkin_package(
+  CATKIN_DEPENDS
+  zed_interfaces
+)
 
-# Default to C++14
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
-endif()
+include_directories(${catkin_INCLUDE_DIRS})
+link_directories(${catkin_LIBRARY_DIRS})
 
-# Remove FindOpenGL warning
-cmake_policy(SET CMP0072 NEW)
-
-# Tests currently only run on OS X @ OSRF jenkins
-# Enable on Linux by providing a display, enable on Windows via EnableDisplayTests=True
-option(EnableDisplayTests "EnableDisplayTests")
-set(DisplayTests "False" CACHE STRING "DisplayTestsVariable")
-
-if(DEFINED ENV{DISPLAY})
-  set(DISPLAYPRESENT TRUE)
-endif()
-
-if(APPLE OR DISPLAYPRESENT OR EnableDisplayTests STREQUAL "True")
-  message(STATUS "Enabling tests requiring a display")
-else()
-  set(SKIP_DISPLAY_TESTS "SKIP_TEST")
-endif()
-
-# options and directories for visual tests (see visual_testing_framework documentation)
-option(EnableVisualTests "decides whether or not to enable the tests")
-
-# Run visual tests only if "EnableVisualTests=True"
-if(EnableVisualTests STREQUAL "True")
-  message(STATUS "Enabling visual tests")
-else()
-  set(SKIP_VISUAL_TESTS "SKIP_TEST")
-endif()
-
-if(MSVC)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
-endif()
-
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
+## This setting causes Qt's "MOC" generation to happen automatically.
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(ament_cmake REQUIRED)
+## This plugin includes Qt widgets, so we must include Qt.
+## We'll use the version that rviz used so they are compatible.
+if(rviz_QT_VERSION VERSION_LESS "5")
+  message(STATUS "Using Qt4 based on the rviz_QT_VERSION: ${rviz_QT_VERSION}")
+  find_package(Qt4 ${rviz_QT_VERSION} EXACT REQUIRED QtCore QtGui)
+  ## pull in all required include dirs, define QT_LIBRARIES, etc.
+  include(${QT_USE_FILE})
+else()
+  message(STATUS "Using Qt5 based on the rviz_QT_VERSION: ${rviz_QT_VERSION}")
+  find_package(Qt5 ${rviz_QT_VERSION} EXACT REQUIRED Core Widgets)
+  ## make target_link_libraries(${QT_LIBRARIES}) pull in all required dependencies
+  set(QT_LIBRARIES Qt5::Widgets)
+endif()
 
-find_package(rviz_common REQUIRED)
-find_package(rviz_rendering REQUIRED)
-find_package(rviz_ogre_vendor REQUIRED)
+include_directories(src/plugin/include)
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets Test)
-
-find_package(zed_interfaces REQUIRED)
-
-###############################################################################
-#Add all files in subdirectories of the project in
-# a dummy_target so qtcreator have access to all files
-FILE(GLOB_RECURSE all_files ${CMAKE_SOURCE_DIR}/*)
-add_custom_target(all_${PROJECT_NAME}_files SOURCES ${all_files})
-
-###############################################################################
-# INCLUDES and LIBS
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin/include
-)
-###############################################################################
-# SOURCES
-set(PLUGIN_SRC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin/src/zed_od_display.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin/src/zed_od_info.cpp
+## Here we specify the list of source files.
+## The generated MOC files are included automatically as headers.
+set(SRC_FILES
+  src/plugin/src/zed_od_display.cpp
+  src/plugin/src/zed_od_info.cpp
 )
 
-set(PLUGIN_INC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/include/visibility_control.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin/include/zed_od_display.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin/include/zed_od_info.hpp
+set(INC_FILES
+  src/plugin/include/zed_od_display.hpp
+  src/plugin/include/zed_od_info.hpp
 )
 
-###############################################################################
-# BIN & INSTALLATION
-add_library(rviz_plugin_zed_od SHARED
-  ${PLUGIN_INC}
-  ${PLUGIN_SRC}
+## An rviz plugin is just a shared library, so here we declare the
+## library to be called ``${PROJECT_NAME}`` (which is
+## "rviz_plugin_zed_od", and specify the list of source files we collected above
+## in ``${SRC_FILES}`` and ``${INC_FILES}``.
+add_library(${PROJECT_NAME} 
+  ${SRC_FILES}
+  ${INC_FILES}
 )
 
-target_include_directories(rviz_plugin_zed_od PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
-  ${rviz_rendering_INCLUDE_DIRS}
-  ${rviz_common_INCLUDE_DIRS}
+target_include_directories(${PROJECT_NAME} PUBLIC
   ${zed_interfaces_INCLUDE_DIRS}
   ${OGRE_INCLUDE_DIRS}
   ${Qt5Widgets_INCLUDE_DIRS}
-  ${resource_retriever_INCLUDE_DIRS}
-  ${TinyXML_INCLUDE_DIRS}
 )
 
-#target_link_libraries(rviz_plugin_zed_od
-#  resource_retriever::resource_retriever
-#  rviz_common::rviz_common
-#)
-
-# Causes the visibility macros to use dllexport rather than dllimport,
-# which is appropriate when building the dll but not consuming it.
-target_compile_definitions(rviz_plugin_zed_od PRIVATE "ZED_OD_PLUGIN_BUILDING_DLL")
+## Link the executable with whatever Qt libraries have been defined by
+## the ``find_package(Qt4 ...)`` line above, or by the
+## ``set(QT_LIBRARIES Qt5::Widgets)``, and with whatever libraries
+## catkin has included.
+##
+## Although this puts "rviz_plugin_zed_od" as the name of the library, cmake knows it is a
+## library and names the actual file something like
+## "librviz_plugin_zed_od.so", or whatever is appropriate for your
+## particular OS.
+target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${catkin_LIBRARIES})
 
 # prevent pluginlib from using boost
-target_compile_definitions(rviz_plugin_zed_od PUBLIC "PLUGINLIB__DISABLE_BOOST_FUNCTIONS")
+target_compile_definitions(${PROJECT_NAME} PUBLIC "PLUGINLIB__DISABLE_BOOST_FUNCTIONS")
 
-pluginlib_export_plugin_description_file(rviz_common plugins_description.xml)
+## Install rules
 
-ament_target_dependencies(rviz_plugin_zed_od
-  PUBLIC
-  zed_interfaces
+install(TARGETS
+  ${PROJECT_NAME}
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-ament_export_include_directories(include)
-ament_export_interfaces(rviz_plugin_zed_od HAS_LIBRARY_TARGET)
-ament_export_dependencies(
-  Qt5
-  rviz_common
-  rclcpp
-  zed_interfaces
+install(FILES
+  plugin_description.xml
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(
-  TARGETS rviz_plugin_zed_od
-  EXPORT rviz_plugin_zed_od
-  ARCHIVE DESTINATION lib
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin
-  INCLUDES DESTINATION include
+install(DIRECTORY media/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/media
 )
 
-install(
-  DIRECTORY  ${CMAKE_CURRENT_SOURCE_DIR}/src/include/
-  DIRECTORY  ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin/include/
-  DESTINATION include/${PROJECT_NAME}/
+install(DIRECTORY icons/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/icons
 )
-
-install(
-  DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/icons"
-  DESTINATION "share/${PROJECT_NAME}"
-)
-
-ament_package()
 

@@ -38,7 +38,7 @@ namespace displays
 // Unique identifier for each object
 uint64_t ZedOdInfo::mObjIdx=0;
 
-ZedOdInfo::ZedOdInfo(zed_interfaces::msg::Object& obj,
+ZedOdInfo::ZedOdInfo(zed_interfaces::Object& obj,
                      Ogre::SceneManager * scene_manager, Ogre::SceneNode * parent_node) {
 
     mSceneManager = scene_manager;
@@ -67,7 +67,7 @@ ZedOdInfo::~ZedOdInfo() {
     }
 }
 
-void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
+void ZedOdInfo::updateInfo(zed_interfaces::Object &obj) {
 
     // Check if scene must be created
     bool create = mSceneNode==nullptr;
@@ -96,10 +96,10 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
         std::string nodeStr = std::string("Pivot") + std::to_string(mObjIdx);
         mPivotSceneNode = mSceneNode->createChildSceneNode(nodeStr.c_str());
 
-        mLabel = std::make_shared<rviz_rendering::MovableText>(mObjName,"Liberation Sans",mLabelScale);
-        mLabel->setTextAlignment(rviz_rendering::MovableText::H_CENTER, rviz_rendering::MovableText::V_CENTER);
+        mLabel = std::make_shared<rviz::MovableText>(mObjName,"Liberation Sans",mLabelScale);
+        mLabel->setTextAlignment(rviz::MovableText::H_CENTER, rviz::MovableText::V_CENTER);
 
-        mPivot = std::make_shared<rviz_rendering::Shape>(rviz_rendering::Shape::Sphere,mSceneManager,mPivotSceneNode);
+        mPivot = std::make_shared<rviz::Shape>(rviz::Shape::Sphere,mSceneManager,mPivotSceneNode);
         mPivot->setColor(mColorBBox);
         mPivot->setScale(Ogre::Vector3(0.02,0.02,0.02));
 
@@ -130,7 +130,7 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
 
     for( int i=0; i<8; i++) {
         Ogre::Vector3 pos;
-        zed_interfaces::msg::Keypoint3D corner = obj.bounding_box_3d.corners[i];
+        zed_interfaces::Keypoint3D corner = obj.bounding_box_3d.corners[i];
         pos[0] = corner.kp[0];
         pos[1] = corner.kp[1];
         pos[2] = corner.kp[2];
@@ -138,7 +138,7 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
 
         shapePtr sphere;
         if(create) {
-            sphere = std::make_shared<rviz_rendering::Shape>(rviz_rendering::Shape::Sphere,mSceneManager,mBBoxSceneNode);
+            sphere = std::make_shared<rviz::Shape>(rviz::Shape::Sphere,mSceneManager,mBBoxSceneNode);
             Ogre::Vector3 scale;
             scale[0] = mJointRadius;
             scale[1] = mJointRadius;
@@ -159,7 +159,7 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
         size_t idx=0;
 
         if(create) {
-            line = std::make_shared<rviz_rendering::BillboardLine>(mSceneManager,mBBoxSceneNode);
+            line = std::make_shared<rviz::BillboardLine>(mSceneManager,mBBoxSceneNode);
             line->setColor(mColorBBox.r,mColorBBox.g,mColorBBox.b,mColorBBox.a);
             if(mShowBBox) {
                 line->setLineWidth(mLinkSize);
@@ -173,12 +173,12 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
 
         Ogre::Vector3 start,end;
         idx = i%4;
-        zed_interfaces::msg::Keypoint3D cornerStart = obj.bounding_box_3d.corners[idx];
+        zed_interfaces::Keypoint3D cornerStart = obj.bounding_box_3d.corners[idx];
         start[0] = cornerStart.kp[0];
         start[1] = cornerStart.kp[1];
         start[2] = cornerStart.kp[2];
         idx = (i+1)%4;
-        zed_interfaces::msg::Keypoint3D cornerEnd = obj.bounding_box_3d.corners[idx];
+        zed_interfaces::Keypoint3D cornerEnd = obj.bounding_box_3d.corners[idx];
         end[0] = cornerEnd.kp[0];
         end[1] = cornerEnd.kp[1];
         end[2] = cornerEnd.kp[2];
@@ -192,7 +192,7 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
         size_t idx=0;
 
         if(create) {
-            line = std::make_shared<rviz_rendering::BillboardLine>(mSceneManager,mBBoxSceneNode);
+            line = std::make_shared<rviz::BillboardLine>(mSceneManager,mBBoxSceneNode);
             line->setColor(mColorBBox.r,mColorBBox.g,mColorBBox.b,mColorBBox.a);
             if(mShowBBox) {
                 line->setLineWidth(mLinkSize);
@@ -206,12 +206,12 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
 
         Ogre::Vector3 start,end;
         idx = i%4+4;
-        zed_interfaces::msg::Keypoint3D cornerStart = obj.bounding_box_3d.corners[idx];
+        zed_interfaces::Keypoint3D cornerStart = obj.bounding_box_3d.corners[idx];
         start[0] = cornerStart.kp[0];
         start[1] = cornerStart.kp[1];
         start[2] = cornerStart.kp[2];
         idx = (i+1)%4+4;
-        zed_interfaces::msg::Keypoint3D cornerEnd = obj.bounding_box_3d.corners[idx];
+        zed_interfaces::Keypoint3D cornerEnd = obj.bounding_box_3d.corners[idx];
         end[0] = cornerEnd.kp[0];
         end[1] = cornerEnd.kp[1];
         end[2] = cornerEnd.kp[2];
@@ -225,7 +225,7 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
         size_t idx=0;
 
         if(create) {
-            line = std::make_shared<rviz_rendering::BillboardLine>(mSceneManager,mBBoxSceneNode);
+            line = std::make_shared<rviz::BillboardLine>(mSceneManager,mBBoxSceneNode);
             line->setColor(mColorBBox.r,mColorBBox.g,mColorBBox.b,mColorBBox.a);
             if(mShowBBox) {
                 line->setLineWidth(mLinkSize);
@@ -239,12 +239,12 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
 
         Ogre::Vector3 start,end;
         idx = i;
-        zed_interfaces::msg::Keypoint3D cornerStart = obj.bounding_box_3d.corners[idx];
+        zed_interfaces::Keypoint3D cornerStart = obj.bounding_box_3d.corners[idx];
         start[0] = cornerStart.kp[0];
         start[1] = cornerStart.kp[1];
         start[2] = cornerStart.kp[2];
         idx = i+4;
-        zed_interfaces::msg::Keypoint3D cornerEnd = obj.bounding_box_3d.corners[idx];
+        zed_interfaces::Keypoint3D cornerEnd = obj.bounding_box_3d.corners[idx];
         end[0] = cornerEnd.kp[0];
         end[1] = cornerEnd.kp[1];
         end[2] = cornerEnd.kp[2];
@@ -267,14 +267,14 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
 
         for( int i=0; i<size; i++ ) {
             Ogre::Vector3 pos;
-            zed_interfaces::msg::Keypoint3D joint = obj.skeleton_3d.keypoints[i];
+            zed_interfaces::Keypoint3D joint = obj.skeleton_3d.keypoints[i];
             pos[0] = joint.kp[0];
             pos[1] = joint.kp[1];
             pos[2] = joint.kp[2];
 
             shapePtr sphere;
             if(create) {
-                sphere = std::make_shared<rviz_rendering::Shape>(rviz_rendering::Shape::Sphere,mSceneManager,mSkelSceneNode);
+                sphere = std::make_shared<rviz::Shape>(rviz::Shape::Sphere,mSceneManager,mSkelSceneNode);
                 Ogre::Vector3 scale;
                 scale[0] = mJointRadius*mSkelScale;
                 scale[1] = mJointRadius*mSkelScale;
@@ -302,7 +302,7 @@ void ZedOdInfo::updateInfo(zed_interfaces::msg::Object &obj) {
             linePtr link;
 
             if(create) {
-                link = std::make_shared<rviz_rendering::BillboardLine>(mSceneManager,mSkelSceneNode);
+                link = std::make_shared<rviz::BillboardLine>(mSceneManager,mSkelSceneNode);
                 link->setColor(mColorSkel.r,mColorSkel.g,mColorSkel.b,mColorSkel.a);
                 link->setLineWidth(mLinkSize*mSkelScale);
                 mSkelLinks.push_back(link);

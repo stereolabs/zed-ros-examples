@@ -28,17 +28,12 @@
 #include <string>
 #include <QObject>
 
-#include "visibility_control.hpp"
+#include <zed_interfaces/ObjectsStamped.h>
 
-#include <zed_interfaces/msg/objects_stamped.hpp>
-
-#include <rviz_rendering/objects/shape.hpp>
-//#include <rviz_rendering/objects/line.hpp>
-#include <rviz_rendering/objects/billboard_line.hpp>
-#include <rviz_rendering/objects/movable_text.hpp>
-
-
-#include <rviz_rendering/objects/object.hpp>
+#include <rviz/ogre_helpers/shape.h>
+#include <rviz/ogre_helpers/billboard_line.h>
+#include <rviz/ogre_helpers/movable_text.h>
+#include <rviz/ogre_helpers/object.h>
 
 namespace Ogre {
     class SceneManager;
@@ -50,20 +45,21 @@ namespace rviz_plugin_zed_od
 namespace displays
 {
 
-typedef std::shared_ptr<rviz_rendering::Shape> shapePtr;
-typedef std::shared_ptr<rviz_rendering::BillboardLine> linePtr;
 
-class ZED_OD_PLUGIN_PUBLIC ZedOdInfo : public QObject {
+typedef std::shared_ptr<rviz::Shape> shapePtr;
+typedef std::shared_ptr<rviz::BillboardLine> linePtr;
+
+class ZedOdInfo : public QObject {
     Q_OBJECT
 
 public:
-    explicit ZedOdInfo(zed_interfaces::msg::Object &obj,
+    explicit ZedOdInfo(zed_interfaces::Object &obj,
                        Ogre::SceneManager *scene_manager, Ogre::SceneNode *parent_node=NULL);
     virtual ~ZedOdInfo();
 
     void updateShowLabel(bool show);
     void updateAlpha(float alpha);
-    void updateInfo(zed_interfaces::msg::Object& obj);
+    void updateInfo(zed_interfaces::Object& obj);
     void updateShowBBox(bool show);
     void updateShowSkeleton(bool show);
     void updateLinkSize(float newval);
@@ -77,7 +73,7 @@ private:
     std::string mObjName;
 
     //shapePtr mBBox;
-    std::shared_ptr<rviz_rendering::MovableText> mLabel;
+    std::shared_ptr<rviz::MovableText> mLabel;
 
     std::vector<shapePtr> mBBoxCorners;
     std::vector<linePtr> mBBoxLines;

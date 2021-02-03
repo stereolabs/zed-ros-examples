@@ -25,13 +25,15 @@
 #ifndef ZED_OD_PLUGIN_HPP
 #define ZED_OD_PLUGIN_HPP
 
-#include <zed_interfaces/msg/objects_stamped.hpp>
+#include <zed_interfaces/ObjectsStamped.h>
 
-#include <rviz_common/message_filter_display.hpp>
-#include <rviz_common/properties/bool_property.hpp>
-#include <rviz_common/properties/float_property.hpp>
+#include <rviz/message_filter_display.h>
+#include <rviz/properties/bool_property.h>
+#include <rviz/properties/float_property.h>
 
-#include "visibility_control.hpp"
+#include <OGRE/OgreVector3.h>
+#include <OGRE/OgreSceneNode.h>
+#include <OGRE/OgreSceneManager.h>
 
 #include <map>
 
@@ -44,8 +46,8 @@ namespace displays
 
 typedef std::shared_ptr<ZedOdInfo> objectPtr;
 
-class ZED_OD_PLUGIN_PUBLIC ZedOdDisplay : public
-        rviz_common::MessageFilterDisplay<zed_interfaces::msg::ObjectsStamped> {
+class ZedOdDisplay : public
+        rviz::MessageFilterDisplay<zed_interfaces::ObjectsStamped> {
     Q_OBJECT
 
 public:
@@ -56,8 +58,8 @@ public:
     void reset() override;
 
 private:
-    void processMessage(zed_interfaces::msg::ObjectsStamped::ConstSharedPtr msg) override;
-    void createOrUpdateObject(zed_interfaces::msg::Object& obj);
+    void processMessage(const zed_interfaces::ObjectsStamped::ConstPtr& msg);
+    void createOrUpdateObject(zed_interfaces::Object& obj);
     void invalidateObjs();
     void removeNotValidObjs();
 
@@ -76,13 +78,13 @@ protected:
     void onDisable() override;
 
 private:
-    rviz_common::properties::FloatProperty* mPropAlpha;
-    rviz_common::properties::BoolProperty* mPropShowSkeleton;
-    rviz_common::properties::BoolProperty* mPropShowLabel;
-    rviz_common::properties::BoolProperty* mPropShowBBox;
-    rviz_common::properties::FloatProperty* mPropLinkSize;
-    rviz_common::properties::FloatProperty* mPropJointRadius;
-    rviz_common::properties::FloatProperty* mPropLabelScale;
+    rviz::FloatProperty* mPropAlpha;
+    rviz::BoolProperty* mPropShowSkeleton;
+    rviz::BoolProperty* mPropShowLabel;
+    rviz::BoolProperty* mPropShowBBox;
+    rviz::FloatProperty* mPropLinkSize;
+    rviz::FloatProperty* mPropJointRadius;
+    rviz::FloatProperty* mPropLabelScale;
 
     std::map<int16_t,objectPtr> mObjects;
     std::map<int16_t,bool> mObjUpdated;
