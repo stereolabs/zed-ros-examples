@@ -154,7 +154,11 @@ void ZedOdDisplay::processMessage(const zed_interfaces::ObjectsStamped::ConstPtr
 void ZedOdDisplay::createOrUpdateObject(zed_interfaces::Object& obj)
 {
   int16_t id = obj.label_id;
-  if (id == -1)
+  if (id == -1 && obj.tracking_available) // Not a valid ID?
+  {
+    return;
+  }
+  if(obj.tracking_available && obj.tracking_state!=1) // Tracking not OK?
   {
     return;
   }
@@ -166,7 +170,7 @@ void ZedOdDisplay::createOrUpdateObject(zed_interfaces::Object& obj)
   mObjUpdated[id] = true;
 
   auto it = mObjects.find(id);
-  if (it == mObjects.end())
+  if (it == mObjects.end() || id==-1)
   {
     objectPtr newObj = std::make_shared<ZedOdInfo>(obj, scene_manager_, scene_node_);
     mObjects[id] = newObj;

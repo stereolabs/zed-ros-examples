@@ -104,7 +104,7 @@ private:
     float mJointRadius = 0.1;
     float mLinkSize = 0.05;
 
-    const float mSkelScale = 0.5f;
+    const float mSkelScale = 0.4f;
     const int mSkelColOffset = 50;
 
     // Unique identifier for each object
