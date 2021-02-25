@@ -33,7 +33,8 @@ Available only if you own a ZED 2 camera:
 
     $ roslaunch zed_display_rviz display_zed2.launch
 
-![Object Detection parameters](images/rviz2_od_params.jpg)
-![Bounding boxes and Skeleton visualization](images/ZEDM-Rviz.jpg)
+![Object Detection parameters](images/rviz_obj_det.png)
+![Skeleton visualization](images/rviz_od_skeletons.png)
+![Multiclass visualization](images/rviz_od_multiclass.png)
 
 [Detailed information](https://www.stereolabs.com/docs/ros/object-detection/)
