@@ -1,6 +1,6 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 70
+    Help Height: 144
     Name: Displays
     Property Tree Widget:
       Expanded:
@@ -8,6 +8,7 @@ Panels:
         - /Video1/Camera view1
         - /Video1/Camera view1/Visibility1
         - /Depth1
+        - /Depth1/DepthCloud1
         - /Depth1/DepthCloud1/Auto Size1
         - /Depth1/DepthCloud1/Occlusion Compensation1
         - /Depth1/Lidar View1/Autocompute Value Bounds1
@@ -17,8 +18,9 @@ Panels:
         - /Pose1/PoseWithCovariance1/Covariance1/Position1
         - /Pose1/PoseWithCovariance1/Covariance1/Orientation1
         - /Mapping1/Fused Pointcloud1
-      Splitter Ratio: 0.5
-    Tree Height: 296
+        - /ZedOdDisplay1
+      Splitter Ratio: 0.494577020406723
+    Tree Height: 342
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -136,7 +138,7 @@ Visualization Manager:
         zed2_camera_center:
           Value: true
         zed2_imu_link:
-          Value: false
+          Value: true
         zed2_left_camera_frame:
           Value: false
         zed2_left_camera_optical_frame:
@@ -163,9 +165,9 @@ Visualization Manager:
               zed2_camera_center:
                 zed2_baro_link:
                   {}
-                zed2_imu_link:
-                  {}
                 zed2_left_camera_frame:
+                  zed2_imu_link:
+                    {}
                   zed2_left_camera_optical_frame:
                     {}
                   zed2_temp_left_link:
@@ -204,7 +206,6 @@ Visualization Manager:
             Mapping:
               Fused Pointcloud: true
               Value: false
-            Obj. Detection: true
             Pose:
               Imu: true
               Odometry: true
@@ -220,6 +221,7 @@ Visualization Manager:
               Left camera: true
               Right camera: true
               Value: false
+            ZedOdDisplay: true
           Zoom Factor: 1
         - Class: rviz/Image
           Enabled: false
@@ -249,7 +251,7 @@ Visualization Manager:
       Name: Video
     - Class: rviz/Group
       Displays:
-        - Alpha: 1
+        - Alpha: 0.699999988079071
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
             Max Value: 0.24085424840450287
@@ -261,7 +263,7 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: RGB8
           Decay Time: 0
-          Enabled: true
+          Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 4096
@@ -271,14 +273,14 @@ Visualization Manager:
           Position Transformer: XYZ
           Queue Size: 1
           Selectable: false
-          Size (Pixels): 1
+          Size (Pixels): 2
           Size (m): 0.009999999776482582
           Style: Points
           Topic: /zed2/zed_node/point_cloud/cloud_registered
           Unreliable: true
           Use Fixed Frame: true
           Use rainbow: true
-          Value: true
+          Value: false
         - Alpha: 1
           Auto Size:
             Auto Size Factor: 1
@@ -298,7 +300,7 @@ Visualization Manager:
           Decay Time: 0
           Depth Map Topic: /zed2/zed_node/depth/depth_registered
           Depth Map Transport Hint: raw
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 4096
@@ -311,13 +313,13 @@ Visualization Manager:
           Position Transformer: XYZ
           Queue Size: 1
           Selectable: false
-          Size (Pixels): 2
+          Size (Pixels): 3
           Size (m): 0.0038045071996748447
           Style: Points
           Topic Filter: true
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -572,13 +574,18 @@ Visualization Manager:
           Value: true
       Enabled: true
       Name: Mapping
-    - Class: rviz/MarkerArray
+    - Class: rviz_plugin_zed_od/ZedOdDisplay
       Enabled: true
-      Marker Topic: /zed2/zed_node/obj_det/object_markers
-      Name: Obj. Detection
-      Namespaces:
-        {}
-      Queue Size: 1
+      Joint Radius: 0.15000000596046448
+      Label Scale: 15
+      Link Size: 0.05000000074505806
+      Name: ZedOdDisplay
+      Show Bounding Boxes: true
+      Show Labels: true
+      Show Skeletons: true
+      Topic: /zed2/zed_node/obj_det/objects
+      Transparency: 0.3499999940395355
+      Unreliable: true
       Value: true
   Enabled: true
   Global Options:
@@ -608,25 +615,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.193673610687256
+      Distance: 4.800862789154053
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.8099099397659302
-        Y: 0.42103394865989685
-        Z: 0.6824659109115601
+        X: 1.9824272394180298
+        Y: -0.6595236659049988
+        Z: 0.4095712900161743
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.12039769440889359
+      Pitch: 0.20539797842502594
       Target Frame: base_link
       Value: Orbit (rviz)
-      Yaw: 2.76859188079834
+      Yaw: 3.4985978603363037
     Saved: ~
 Window Geometry:
   Camera view:
@@ -641,10 +648,10 @@ Window Geometry:
     collapsed: false
   Height: 1025
   Hide Left Dock: false
-  Hide Right Dock: false
+  Hide Right Dock: true
   Left camera:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001cf000003a7fc0200000013fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000001ab000000c900fffffffb0000001600430061006d0065007200610020007600690065007701000001ee000001f60000001600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000002400000010f0000000000000000fb0000000a0049006d006100670065000000028b000000c40000000000000000fb0000000a0049006d006100670065010000028a000000c50000000000000000fb0000000a0049006d00610067006500000002b30000009c0000000000000000fb0000000a0049006d006100670065010000028b000000c40000000000000000fb00000012004400650070007400680020006d006100700200000242000000d5000001ea0000011dfb000000200043006f006e0066006900640065006e0063006500200069006d006100670065020000058200000087000001ea0000010cfb0000001c0043006f006e0066006900640065006e006300650020006d00610070020000058200000195000001ea0000010dfb00000016004c006500660074002000630061006d0065007200610200000245000002ee000001ea00000129fb0000001800520069006700680074002000630061006d0065007200610200000430000002ee000001ea00000129000000010000010f000003a7fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d000003a7000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073f00000040fc0100000002fb0000000800540069006d006500000000000000073f000002eb00fffffffb0000000800540069006d0065010000000000000450000000000000000000000463000003a700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001cf000003abfc0200000013fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b00000221000000c700fffffffb0000001600430061006d006500720061002000760069006500770100000262000001840000001600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000002400000010f0000000000000000fb0000000a0049006d006100670065000000028b000000c40000000000000000fb0000000a0049006d006100670065010000028a000000c50000000000000000fb0000000a0049006d00610067006500000002b30000009c0000000000000000fb0000000a0049006d006100670065010000028b000000c40000000000000000fb00000012004400650070007400680020006d006100700200000242000000d5000001ea0000011dfb000000200043006f006e0066006900640065006e0063006500200069006d006100670065020000058200000087000001ea0000010cfb0000001c0043006f006e0066006900640065006e006300650020006d00610070020000058200000195000001ea0000010dfb00000016004c006500660074002000630061006d0065007200610200000245000002ee000001ea00000129fb0000001800520069006700680074002000630061006d0065007200610200000430000002ee000001ea00000129000000010000010f000003c6fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b000003c6000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073f00000040fc0100000002fb0000000800540069006d006500000000000000073f0000024400fffffffb0000000800540069006d0065010000000000000450000000000000000000000578000003ab00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Right camera:
     collapsed: false
   Selection:
@@ -654,7 +661,7 @@ Window Geometry:
   Tool Properties:
     collapsed: false
   Views:
-    collapsed: false
+    collapsed: true
   Width: 1869
-  X: 1971
+  X: 51
   Y: 27

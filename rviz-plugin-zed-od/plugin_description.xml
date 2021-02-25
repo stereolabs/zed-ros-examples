@@ -1,0 +1,10 @@
+<library path="lib/librviz_plugin_zed_od">
+  <class name="rviz_plugin_zed_od/ZedOdDisplay"
+         type="rviz_plugin_zed_od::displays::ZedOdDisplay"
+         base_class_type="rviz::Display">
+    <description>
+      Displays the results of the Object Detection module of the Stereolabs ZED SDK.
+    </description>
+    <message_type>zed_interfaces/ObjectsStamped</message_type>
+  </class>
+</library>

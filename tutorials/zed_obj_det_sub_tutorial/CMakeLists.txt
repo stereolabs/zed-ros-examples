@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(zed_obj_det_sub_tutorial)
 
 # if CMAKE_BUILD_TYPE is not specified, take 'Release' as default
