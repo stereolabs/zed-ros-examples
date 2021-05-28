@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!--
+Copyright (c) 2020, STEREOLABS.
+
+All rights reserved.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<launch>
+    <!-- System name -->
+    <arg name="system_name"  default="zed_multi" />
+
+    <!-- Name of the Nodelet Manager -->
+    <arg name="nodelet_manager_name"    default="$(arg system_name)_nodelet_manager" />
+
+    <!-- Start Rviz? -->
+    <arg name="start_rviz"              default="false" />
+
+    <!-- FRONT CAMERA -->
+    <arg name="camera_name_1"           default="zed2_front" /> <!-- The name you want -->
+    <arg name="camera_model_1"          default="zed2" /> <!-- 'zed' or 'zedm' or 'zed2' -->    
+    <arg name="zed_nodelet_name_1"      default="zed_nodelet_front" />
+
+    <!-- Base frame -->
+    <arg name="base_frame_1"            default="base_link" />
+
+    <!-- Publish ZED urdf -->
+    <arg name="publish_urdf_1"          default="true" />
+
+    <!-- Publish odom TF -->
+    <arg name="publish_tf_1"            default="true" />
+
+    <arg name="camera_sn_1"             default="25555745" /> <!-- Very important to be able to identify the camera uniquely--> 
+    <arg name="gpu_id_1"                default="-1" />
+
+    <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pos_x_1"             default="0.175" />
+    <arg name="cam_pos_y_1"             default="0.0" />
+    <arg name="cam_pos_z_1"             default="0.0" />
+
+    <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_roll_1"              default="0.0" />
+    <arg name="cam_pitch_1"             default="0.0" />
+    <arg name="cam_yaw_1"               default="0.0" /> <!-- Looking forward -->
+
+    <!-- REAR CAMERA -->
+    <arg name="camera_name_2"           default="zed2_rear" /> <!-- The name you want -->
+    <arg name="camera_model_2"          default="zed2" /> <!-- 'zed' or 'zedm' or 'zed2' -->    
+    <arg name="zed_nodelet_name_2"      default="zed_nodelet_rear" />
+
+    <!-- Base frame -->
+    <arg name="base_frame_2"            default="base_link" />
+
+    <!-- Publish ZED urdf -->
+    <arg name="publish_urdf_2"          default="true" />
+
+    <!-- Publish odom TF -->
+    <arg name="publish_tf_2"            default="false" /> <!-- Only one node must pushish TF, unless you use a Kalman filter to fuse odometries -->
+
+    <arg name="camera_sn_2"             default="23154724" /> <!-- Very important to be able to identify the camera uniquely-->  
+    <arg name="gpu_id_2"                default="-1" />
+
+    <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pos_x_2"             default="-0.175" />
+    <arg name="cam_pos_y_2"             default="0.0" />
+    <arg name="cam_pos_z_2"             default="0.0" />
+
+    <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_roll_2"              default="0.0" />
+    <arg name="cam_pitch_2"             default="0.0" />
+    <arg name="cam_yaw_2"               default="3.141592654" /> <!-- Looking backward -->
+
+    <!-- Start Rviz-->
+    <group if="$(eval arg('start_rviz')==true)">
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zed_multicamera_example)/rviz/multi_cam_single_nodelet.rviz" output="screen" />
+    </group>
+
+    <!-- Start nodelet manager and two nodelets in the "system_name" namespace-->
+    <group ns="$(arg system_name)">
+        <!-- Common nodelet Manager -->
+        <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)"  args="manager" output="screen" />
+
+        <group ns="$(arg camera_name_1)">
+            <!-- Load ZED wrapper nodelet for camera 1 -->
+            <include file="$(find zed_multicamera_example)/launch/include/zed_camera_nodelet_mod.launch">
+                <arg name="nodelet_manager_name"            value="/$(arg system_name)/$(arg nodelet_manager_name)" />
+                <arg name="camera_name"                     value="$(arg camera_name_1)" />
+                <arg name="node_name"                       value="$(arg zed_nodelet_name_1)" />
+                <arg name="camera_model"                    value="$(arg camera_model_1)" />
+                <arg name="base_frame"                      value="$(arg base_frame_1)" />
+                <arg name="publish_urdf"                    value="$(arg publish_urdf_1)" />
+                <arg name="publish_tf"                      value="$(arg publish_tf_1)" />
+                <arg name="camera_sn"                      value="$(arg camera_sn_1)" />
+                <arg name="gpu_id"                          value="$(arg gpu_id_1)" />
+                <arg name="cam_pos_x"                       value="$(arg cam_pos_x_1)" />
+                <arg name="cam_pos_y"                       value="$(arg cam_pos_y_1)" />
+                <arg name="cam_pos_z"                       value="$(arg cam_pos_z_1)" />
+                <arg name="cam_roll"                        value="$(arg cam_roll_1)" />
+                <arg name="cam_pitch"                       value="$(arg cam_pitch_1)" />
+                <arg name="cam_yaw"                         value="$(arg cam_yaw_1)" />            
+            </include>
+        </group>
+
+        <group ns="$(arg camera_name_2)">
+            <!-- Load ZED wrapper nodelet for camera 2-->
+            <include file="$(find zed_multicamera_example)/launch/include/zed_camera_nodelet_mod.launch">
+                <arg name="nodelet_manager_name"            value="/$(arg system_name)/$(arg nodelet_manager_name)" />
+                <arg name="camera_name"                     value="$(arg camera_name_2)" />
+                <arg name="node_name"                       value="$(arg zed_nodelet_name_2)" />
+                <arg name="camera_model"                    value="$(arg camera_model_2)" />
+                <arg name="base_frame"                      value="$(arg base_frame_2)" />
+                <arg name="publish_urdf"                    value="$(arg publish_urdf_2)" />
+                <arg name="publish_tf"                      value="$(arg publish_tf_2)" />
+                <arg name="camera_sn"                      value="$(arg camera_sn_2)" />
+                <arg name="gpu_id"                          value="$(arg gpu_id_2)" />
+                <arg name="cam_pos_x"                       value="$(arg cam_pos_x_2)" />
+                <arg name="cam_pos_y"                       value="$(arg cam_pos_y_2)" />
+                <arg name="cam_pos_z"                       value="$(arg cam_pos_z_2)" />
+                <arg name="cam_roll"                        value="$(arg cam_roll_2)" />
+                <arg name="cam_pitch"                       value="$(arg cam_pitch_2)" />
+                <arg name="cam_yaw"                         value="$(arg cam_yaw_2)" />                
+            </include>
+        </group>        
+    </group>
+</launch>

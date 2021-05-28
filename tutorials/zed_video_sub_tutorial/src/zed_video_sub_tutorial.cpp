@@ -81,7 +81,7 @@ int main(int argc, char** argv)
    */
   ros::Subscriber subRightRectified =
       n.subscribe("/zed/zed_node/right/image_rect_color", 10, imageRightRectifiedCallback);
-  ros::Subscriber subLeftRectified = n.subscribe("/zed/zed_node/left/image_rect_color", 10, imageLeftRectifiedCallback);
+  ros::Subscriber subLeftRectified = n.subscribe("image", 10, imageLeftRectifiedCallback);
 
   /**
    * ros::spin() will enter a loop, pumping callbacks.  With this version, all

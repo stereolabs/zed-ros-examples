@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <arg name="cam_yaw_2"            default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
 
     <group ns="$(arg camera_name_1)">
-        <include file="$(find zed_multicamera_example)/launch/zed_camera_mod.launch">
+        <include file="$(find zed_multicamera_example)/launch/include/zed_camera_mod.launch">
             <arg name="camera_name"         value="$(arg camera_name_1)" />
             <arg name="node_name"           value="$(arg node_name_1)" />
             <arg name="camera_model"        value="$(arg camera_model_1)" />
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </group>
 
     <group ns="$(arg camera_name_2)">
-        <include file="$(find zed_multicamera_example)/launch/zed_camera_mod.launch">
+        <include file="$(find zed_multicamera_example)/launch/include/zed_camera_mod.launch">
             <arg name="camera_name"         value="$(arg camera_name_2)" />
             <arg name="node_name"           value="$(arg node_name_2)" />
             <arg name="camera_model"        value="$(arg camera_model_2)" />

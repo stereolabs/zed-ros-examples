@@ -1,6 +1,6 @@
 ![](./images/Picto+STEREOLABS_Black.jpg)
 
-# Stereolabs ZED Camera - ROS Tutorials and Examples
+# Stereolabs ZED Camera - ROS Noetic Ninjemis Tutorials and Examples
 
 This package is a collection of examples and tutorials to illustrate how to better use the ZED cameras in the ROS framework
 
@@ -14,9 +14,14 @@ This package is a collection of examples and tutorials to illustrate how to bett
 
 ### Prerequisites
 
-- Ubuntu 16.04 or newer (Ubuntu 18.04 recommended)
-- [ZED SDK **≥ 3.0**](https://www.stereolabs.com/developers/) and its dependency [CUDA](https://developer.nvidia.com/cuda-downloads)
-- [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) or [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) (recommended)
+- Ubuntu 20.04
+- [ZED SDK **≥ 3.5**](https://www.stereolabs.com/developers/) and its dependency [CUDA](https://developer.nvidia.com/cuda-downloads)
+- [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
+
+- Ubuntu 18.04
+- [ZED SDK **≥ 3.5**](https://www.stereolabs.com/developers/) and its dependency [CUDA](https://developer.nvidia.com/cuda-downloads)
+- [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
+
 
 ### Build the program
 

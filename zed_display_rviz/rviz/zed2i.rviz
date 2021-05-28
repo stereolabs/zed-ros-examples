@@ -75,45 +75,45 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        zed2_baro_link:
+        zed2i_baro_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        zed2_camera_center:
+        zed2i_camera_center:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        zed2_left_camera_frame:
+        zed2i_left_camera_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        zed2_left_camera_optical_frame:
+        zed2i_left_camera_optical_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        zed2_mag_link:
+        zed2i_mag_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        zed2_right_camera_frame:
+        zed2i_right_camera_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        zed2_right_camera_optical_frame:
+        zed2i_right_camera_optical_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        zed2_temp_left_link:
+        zed2i_temp_left_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        zed2_temp_right_link:
+        zed2i_temp_right_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
       Name: RobotModel
-      Robot Description: /zed2/zed2_description
+      Robot Description: /zed2i/zed2i_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
@@ -129,25 +129,25 @@ Visualization Manager:
           Value: true
         odom:
           Value: true
-        zed2_baro_link:
+        zed2i_baro_link:
           Value: true
-        zed2_camera_center:
+        zed2i_camera_center:
           Value: true
-        zed2_imu_link:
+        zed2i_imu_link:
           Value: true
-        zed2_left_camera_frame:
+        zed2i_left_camera_frame:
           Value: false
-        zed2_left_camera_optical_frame:
+        zed2i_left_camera_optical_frame:
           Value: false
-        zed2_mag_link:
+        zed2i_mag_link:
           Value: true
-        zed2_right_camera_frame:
+        zed2i_right_camera_frame:
           Value: false
-        zed2_right_camera_optical_frame:
+        zed2i_right_camera_optical_frame:
           Value: false
-        zed2_temp_left_link:
+        zed2i_temp_left_link:
           Value: false
-        zed2_temp_right_link:
+        zed2i_temp_right_link:
           Value: false
       Marker Alpha: 1
       Marker Scale: 0.5
@@ -159,22 +159,22 @@ Visualization Manager:
         map:
           odom:
             base_link:
-              zed2_camera_center:
-                zed2_baro_link:
+              zed2i_camera_center:
+                zed2i_baro_link:
                   {}
-                zed2_left_camera_frame:
-                  zed2_imu_link:
+                zed2i_left_camera_frame:
+                  zed2i_imu_link:
                     {}
-                  zed2_left_camera_optical_frame:
+                  zed2i_left_camera_optical_frame:
                     {}
-                  zed2_temp_left_link:
+                  zed2i_temp_left_link:
                     {}
-                zed2_mag_link:
+                zed2i_mag_link:
                   {}
-                zed2_right_camera_frame:
-                  zed2_right_camera_optical_frame:
+                zed2i_right_camera_frame:
+                  zed2i_right_camera_optical_frame:
                     {}
-                  zed2_temp_right_link:
+                  zed2i_temp_right_link:
                     {}
       Update Interval: 0
       Value: true
@@ -183,7 +183,7 @@ Visualization Manager:
         - Class: rviz/Camera
           Enabled: true
           Image Rendering: background and overlay
-          Image Topic: /zed2/zed_node/rgb/image_rect_color
+          Image Topic: /zed2i/zed_node/rgb/image_rect_color
           Name: Camera view
           Overlay Alpha: 0.5
           Queue Size: 1
@@ -220,7 +220,7 @@ Visualization Manager:
           Zoom Factor: 1
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed2/zed_node/left/image_rect_color
+          Image Topic: /zed2i/zed_node/left/image_rect_color
           Max Value: 10
           Median window: 5
           Min Value: 0
@@ -232,7 +232,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed2/zed_node/right/image_rect_color
+          Image Topic: /zed2i/zed_node/right/image_rect_color
           Max Value: 10
           Median window: 5
           Min Value: 0
@@ -269,7 +269,7 @@ Visualization Manager:
           Size (Pixels): 2
           Size (m): 0.009999999776482582
           Style: Points
-          Topic: /zed2/zed_node/point_cloud/cloud_registered
+          Topic: /zed2i/zed_node/point_cloud/cloud_registered
           Unreliable: true
           Use Fixed Frame: true
           Use rainbow: true
@@ -287,11 +287,11 @@ Visualization Manager:
           Channel Name: intensity
           Class: rviz/DepthCloud
           Color: 255; 255; 255
-          Color Image Topic: /zed2/zed_node/rgb/image_rect_color
+          Color Image Topic: /zed2i/zed_node/rgb/image_rect_color
           Color Transformer: RGB8
           Color Transport Hint: raw
           Decay Time: 0
-          Depth Map Topic: /zed2/zed_node/depth/depth_registered
+          Depth Map Topic: /zed2i/zed_node/depth/depth_registered
           Depth Map Transport Hint: raw
           Enabled: false
           Invert Rainbow: false
@@ -313,7 +313,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed2/zed_node/depth/depth_registered
+          Image Topic: /zed2i/zed_node/depth/depth_registered
           Max Value: 20
           Median window: 5
           Min Value: 0
@@ -325,7 +325,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed2/zed_node/confidence/confidence_map
+          Image Topic: /zed2i/zed_node/confidence/confidence_map
           Max Value: 100
           Median window: 5
           Min Value: 0
@@ -371,7 +371,7 @@ Visualization Manager:
             Shaft Length: 0.30000001192092896
             Shaft Radius: 0.019999999552965164
             Value: Arrow
-          Topic: /zed2/zed_node/odom
+          Topic: /zed2i/zed_node/odom
           Unreliable: true
           Value: false
         - Alpha: 1
@@ -387,7 +387,7 @@ Visualization Manager:
           Shaft Length: 0.30000001192092896
           Shaft Radius: 0.019999999552965164
           Shape: Arrow
-          Topic: /zed2/zed_node/pose
+          Topic: /zed2i/zed_node/pose
           Unreliable: false
           Value: true
         - Alpha: 1
@@ -418,7 +418,7 @@ Visualization Manager:
           Shaft Length: 0.30000001192092896
           Shaft Radius: 0.019999999552965164
           Shape: Arrow
-          Topic: /zed2/zed_node/pose_with_covariance
+          Topic: /zed2i/zed_node/pose_with_covariance
           Unreliable: false
           Value: false
         - Alpha: 1
@@ -442,7 +442,7 @@ Visualization Manager:
           Radius: 0.029999999329447746
           Shaft Diameter: 0.009999999776482582
           Shaft Length: 0.05000000074505806
-          Topic: /zed2/zed_node/path_odom
+          Topic: /zed2i/zed_node/path_odom
           Unreliable: true
           Value: true
         - Alpha: 1
@@ -466,7 +466,7 @@ Visualization Manager:
           Radius: 0.029999999329447746
           Shaft Diameter: 0.009999999776482582
           Shaft Length: 0.05000000074505806
-          Topic: /zed2/zed_node/path_map
+          Topic: /zed2i/zed_node/path_map
           Unreliable: true
           Value: true
         - Acceleration properties:
@@ -489,7 +489,7 @@ Visualization Manager:
           Enabled: true
           Name: Imu
           Queue Size: 10
-          Topic: /zed2/zed_node/imu/data
+          Topic: /zed2i/zed_node/imu/data
           Unreliable: true
           Value: true
           fixed_frame_orientation: true
@@ -520,7 +520,7 @@ Visualization Manager:
           Size (Pixels): 3
           Size (m): 0.009999999776482582
           Style: Points
-          Topic: /zed2/zed_node/mapping/fused_cloud
+          Topic: /zed2i/zed_node/mapping/fused_cloud
           Unreliable: true
           Use Fixed Frame: true
           Use rainbow: true
@@ -537,7 +537,7 @@ Visualization Manager:
       Show Bounding Boxes: true
       Show Labels: true
       Show Skeletons: true
-      Topic: /zed2/zed_node/obj_det/objects
+      Topic: /zed2i/zed_node/obj_det/objects
       Transparency: 0.3499999940395355
       Unreliable: true
       Value: true
