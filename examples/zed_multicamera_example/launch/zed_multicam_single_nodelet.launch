@@ -24,7 +24,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <arg name="nodelet_manager_name"    default="$(arg system_name)_nodelet_manager" />
 
     <!-- Start Rviz? -->
-    <arg name="start_rviz"              default="true" />
+    <arg name="start_rviz"              default="false" />
 
     <!-- FRONT CAMERA -->
     <arg name="camera_name_1"           default="zed2_front" /> <!-- The name you want -->

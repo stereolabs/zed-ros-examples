@@ -1,0 +1,619 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 144
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /TF1/Frames1
+        - /Video1/Camera view1
+        - /Video1/Camera view1/Visibility1
+        - /Depth1/DepthCloud1/Auto Size1
+        - /Depth1/DepthCloud1/Occlusion Compensation1
+        - /Pose1/Odometry1/Covariance1
+        - /Pose1/Odometry1/Covariance1/Position1
+        - /Pose1/Odometry1/Covariance1/Orientation1
+        - /Pose1/PoseWithCovariance1/Covariance1/Position1
+        - /Pose1/PoseWithCovariance1/Covariance1/Orientation1
+        - /Mapping1/Fused Pointcloud1
+      Splitter Ratio: 0.494577020406723
+    Tree Height: 353
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: Camera view
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed2i_baro_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed2i_camera_center:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        zed2i_left_camera_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed2i_left_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed2i_mag_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed2i_right_camera_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed2i_right_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed2i_temp_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed2i_temp_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: RobotModel
+      Robot Description: /zed2i/zed2i_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 5
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: false
+        map:
+          Value: true
+        odom:
+          Value: true
+        zed2i_baro_link:
+          Value: true
+        zed2i_camera_center:
+          Value: true
+        zed2i_imu_link:
+          Value: true
+        zed2i_left_camera_frame:
+          Value: false
+        zed2i_left_camera_optical_frame:
+          Value: false
+        zed2i_mag_link:
+          Value: true
+        zed2i_right_camera_frame:
+          Value: false
+        zed2i_right_camera_optical_frame:
+          Value: false
+        zed2i_temp_left_link:
+          Value: false
+        zed2i_temp_right_link:
+          Value: false
+      Marker Alpha: 1
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        map:
+          odom:
+            base_link:
+              zed2i_camera_center:
+                zed2i_baro_link:
+                  {}
+                zed2i_left_camera_frame:
+                  zed2i_imu_link:
+                    {}
+                  zed2i_left_camera_optical_frame:
+                    {}
+                  zed2i_temp_left_link:
+                    {}
+                zed2i_mag_link:
+                  {}
+                zed2i_right_camera_frame:
+                  zed2i_right_camera_optical_frame:
+                    {}
+                  zed2i_temp_right_link:
+                    {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Camera
+          Enabled: true
+          Image Rendering: background and overlay
+          Image Topic: /zed2i/zed_node/rgb/image_rect_color
+          Name: Camera view
+          Overlay Alpha: 0.5
+          Queue Size: 1
+          Transport Hint: raw
+          Unreliable: true
+          Value: true
+          Visibility:
+            Depth:
+              Confidence map: true
+              Depth map: true
+              DepthCloud: true
+              PointCloud2: true
+              Value: false
+            Grid: false
+            Mapping:
+              Fused Pointcloud: true
+              Value: false
+            Pose:
+              Imu: true
+              Odometry: true
+              Odometry Path: true
+              Pose: true
+              Pose Path: true
+              PoseWithCovariance: true
+              Value: false
+            RobotModel: false
+            TF: false
+            Value: true
+            Video:
+              Left camera: true
+              Right camera: true
+              Value: false
+            ZedOdDisplay: true
+          Zoom Factor: 1
+        - Class: rviz/Image
+          Enabled: false
+          Image Topic: /zed2i/zed_node/left/image_rect_color
+          Max Value: 10
+          Median window: 5
+          Min Value: 0
+          Name: Left camera
+          Normalize Range: false
+          Queue Size: 1
+          Transport Hint: raw
+          Unreliable: true
+          Value: false
+        - Class: rviz/Image
+          Enabled: false
+          Image Topic: /zed2i/zed_node/right/image_rect_color
+          Max Value: 10
+          Median window: 5
+          Min Value: 0
+          Name: Right camera
+          Normalize Range: false
+          Queue Size: 1
+          Transport Hint: raw
+          Unreliable: true
+          Value: false
+      Enabled: true
+      Name: Video
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 0.699999988079071
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 0.24085424840450287
+            Min Value: -1.5506365299224854
+            Value: true
+          Axis: X
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: PointCloud2
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: false
+          Size (Pixels): 2
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic: /zed2i/zed_node/point_cloud/cloud_registered
+          Unreliable: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Auto Size:
+            Auto Size Factor: 1
+            Value: false
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/DepthCloud
+          Color: 255; 255; 255
+          Color Image Topic: /zed2i/zed_node/rgb/image_rect_color
+          Color Transformer: RGB8
+          Color Transport Hint: raw
+          Decay Time: 0
+          Depth Map Topic: /zed2i/zed_node/depth/depth_registered
+          Depth Map Transport Hint: raw
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: DepthCloud
+          Occlusion Compensation:
+            Occlusion Time-Out: 30
+            Value: false
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: false
+          Size (Pixels): 3
+          Size (m): 0.0038045071996748447
+          Style: Points
+          Topic Filter: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Class: rviz/Image
+          Enabled: false
+          Image Topic: /zed2i/zed_node/depth/depth_registered
+          Max Value: 20
+          Median window: 5
+          Min Value: 0
+          Name: Depth map
+          Normalize Range: false
+          Queue Size: 1
+          Transport Hint: raw
+          Unreliable: true
+          Value: false
+        - Class: rviz/Image
+          Enabled: false
+          Image Topic: /zed2i/zed_node/confidence/confidence_map
+          Max Value: 100
+          Median window: 5
+          Min Value: 0
+          Name: Confidence map
+          Normalize Range: false
+          Queue Size: 1
+          Transport Hint: raw
+          Unreliable: true
+          Value: false
+      Enabled: true
+      Name: Depth
+    - Class: rviz/Group
+      Displays:
+        - Angle Tolerance: 0
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: RGB
+              Frame: Local
+              Offset: 0.15000000596046448
+              Scale: 20
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 10
+              Value: true
+            Value: true
+          Enabled: false
+          Keep: 1
+          Name: Odometry
+          Position Tolerance: 0
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.10000000149011612
+            Axes Radius: 0.009999999776482582
+            Color: 255; 25; 0
+            Head Length: 0.10000000149011612
+            Head Radius: 0.05000000074505806
+            Shaft Length: 0.30000001192092896
+            Shaft Radius: 0.019999999552965164
+            Value: Arrow
+          Topic: /zed2i/zed_node/odom
+          Unreliable: true
+          Value: false
+        - Alpha: 1
+          Axes Length: 1
+          Axes Radius: 0.10000000149011612
+          Class: rviz/Pose
+          Color: 0; 255; 0
+          Enabled: true
+          Head Length: 0.10000000149011612
+          Head Radius: 0.05000000074505806
+          Name: Pose
+          Queue Size: 10
+          Shaft Length: 0.30000001192092896
+          Shaft Radius: 0.019999999552965164
+          Shape: Arrow
+          Topic: /zed2i/zed_node/pose
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Axes Length: 1
+          Axes Radius: 0.10000000149011612
+          Class: rviz/PoseWithCovariance
+          Color: 25; 255; 0
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 0.15000000596046448
+              Scale: 10
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 10
+              Value: true
+            Value: true
+          Enabled: false
+          Head Length: 0.10000000149011612
+          Head Radius: 0.05000000074505806
+          Name: PoseWithCovariance
+          Queue Size: 10
+          Shaft Length: 0.30000001192092896
+          Shaft Radius: 0.019999999552965164
+          Shape: Arrow
+          Topic: /zed2i/zed_node/pose_with_covariance
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 255; 25; 0
+          Enabled: true
+          Head Diameter: 0.029999999329447746
+          Head Length: 0.019999999552965164
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Odometry Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 25; 0
+          Pose Style: Arrows
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.009999999776482582
+          Shaft Length: 0.05000000074505806
+          Topic: /zed2i/zed_node/path_odom
+          Unreliable: true
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: true
+          Head Diameter: 0.029999999329447746
+          Head Length: 0.019999999552965164
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Pose Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 25; 255; 0
+          Pose Style: Arrows
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.009999999776482582
+          Shaft Length: 0.05000000074505806
+          Topic: /zed2i/zed_node/path_map
+          Unreliable: true
+          Value: true
+        - Acceleration properties:
+            Acc. vector alpha: 1
+            Acc. vector color: 255; 0; 0
+            Acc. vector scale: 1
+            Derotate acceleration: false
+            Enable acceleration: false
+          Axes properties:
+            Axes scale: 1
+            Enable axes: true
+          Box properties:
+            Box alpha: 1
+            Box color: 255; 0; 0
+            Enable box: false
+            x_scale: 1
+            y_scale: 1
+            z_scale: 1
+          Class: rviz_imu_plugin/Imu
+          Enabled: true
+          Name: Imu
+          Queue Size: 10
+          Topic: /zed2i/zed_node/imu/data
+          Unreliable: true
+          Value: true
+          fixed_frame_orientation: true
+      Enabled: true
+      Name: Pose
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Fused Pointcloud
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: false
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic: /zed2i/zed_node/mapping/fused_cloud
+          Unreliable: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+      Enabled: true
+      Name: Mapping
+    - Class: rviz_plugin_zed_od/ZedOdDisplay
+      Enabled: true
+      Joint Radius: 0.15000000596046448
+      Label Scale: 15
+      Link Size: 0.05000000074505806
+      Name: ZedOdDisplay
+      Queue Size: 10
+      Show Bounding Boxes: true
+      Show Labels: true
+      Show Skeletons: true
+      Topic: /zed2i/zed_node/obj_det/objects
+      Transparency: 0.3499999940395355
+      Unreliable: true
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Default Light: true
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 4.337347030639648
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 2.022963523864746
+        Y: -0.5913462042808533
+        Z: -0.2052266001701355
+      Focal Shape Fixed Size: false
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.1653980165719986
+      Target Frame: base_link
+      Yaw: 2.8185956478118896
+    Saved: ~
+Window Geometry:
+  Camera view:
+    collapsed: false
+  Confidence map:
+    collapsed: false
+  Depth map:
+    collapsed: false
+  Displays:
+    collapsed: false
+  Height: 1043
+  Hide Left Dock: false
+  Hide Right Dock: true
+  Left camera:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000400000000000001cf000003bdfc0200000013fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b0000022c000000c700fffffffb0000001600430061006d00650072006100200076006900650077010000026d0000018b0000001600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000002400000010f0000000000000000fb0000000a0049006d006100670065000000028b000000c40000000000000000fb0000000a0049006d006100670065010000028a000000c50000000000000000fb0000000a0049006d00610067006500000002b30000009c0000000000000000fb0000000a0049006d006100670065010000028b000000c40000000000000000fb00000012004400650070007400680020006d006100700200000242000000d5000001ea0000011dfb0000001c0043006f006e0066006900640065006e006300650020006d00610070020000058200000087000001ea0000010cfb0000001c0043006f006e0066006900640065006e006300650020006d00610070020000058200000195000001ea0000010dfb00000016004c006500660074002000630061006d0065007200610200000245000002ee000001ea00000129fb0000001800520069006700680074002000630061006d0065007200610200000430000002ee000001ea00000129000000010000010f000003c6fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b000003c6000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073f00000040fc0100000002fb0000000800540069006d006500000000000000073f0000024400fffffffb0000000800540069006d00650100000000000004500000000000000000000005ab000003bd00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Right camera:
+    collapsed: false
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: true
+  Width: 1920
+  X: 1920
+  Y: 0
