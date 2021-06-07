@@ -20,7 +20,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <arg name="svo_file"             default="" /> <!-- <arg name="svo_file" default="path/to/svo/file.svo"> -->
     <arg name="stream"               default="" /> <!-- <arg name="stream" default="<ip_address>:<port>"> -->
 
-    <arg name="camera_model"         default="zed2i" />
+    <arg name="camera_model"         default="zed2" />
 
     <!-- Launch ZED camera wrapper -->
     <include file="$(find zed_wrapper)/launch/$(arg camera_model).launch">
