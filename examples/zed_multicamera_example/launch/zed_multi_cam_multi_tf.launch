@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="publish_urdf"         default="true" />
+
+    <!-- CAMERA 1 -->
+    <arg name="node_name_1"          default="zed_node_A" />
+    <arg name="camera_model_1"       default="zed2" />    
+    <arg name="camera_name_1"        default="zedA" />
+    <arg name="cam_pos_x_1"          default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pos_y_1"          default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pos_z_1"          default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_roll_1"           default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pitch_1"          default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_yaw_1"            default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="base_frame_1"         default="base_frame_1"/>
+    <arg name="odom_1"                default="odom_1"/>
+
+
+    <group ns="$(arg camera_name_1)">
+        <include file="$(find zed_multicamera_example)/launch/include/zed_camera_mod_multi_tf.launch">
+            <arg name="camera_name"         value="$(arg camera_name_1)" />
+            <arg name="node_name"           value="$(arg node_name_1)" />
+            <arg name="camera_model"        value="$(arg camera_model_1)" />
+            <arg name="publish_urdf"        value="$(arg publish_urdf)" />
+            <arg name="publish_tf"          value="true" />
+            <arg name="camera_id"           value="0" />
+            <arg name="base_frame"          value="$(arg base_frame_1)" />
+            <arg name="odom"                value="$(arg odom_1)"/>
+            <arg name="cam_pos_x"           value="$(arg cam_pos_x_1)" />
+            <arg name="cam_pos_y"           value="$(arg cam_pos_y_1)" />
+            <arg name="cam_pos_z"           value="$(arg cam_pos_z_1)" />
+            <arg name="cam_roll"            value="$(arg cam_roll_1)" />
+            <arg name="cam_pitch"           value="$(arg cam_pitch_1)" />
+            <arg name="cam_yaw"             value="$(arg cam_yaw_1)" />
+        </include>
+    </group>
+
+
+
+     <!-- CAMERA 2 -->
+    <arg name="node_name_2"          default="zed_node_B" />
+    <arg name="camera_model_2"       default="zed" />
+    <arg name="camera_name_2"        default="zedB" />
+    <arg name="cam_pos_x_2"          default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pos_y_2"          default="-0.28" /> <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pos_z_2"          default="-0.04" /> <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_roll_2"           default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pitch_2"          default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_yaw_2"            default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="base_frame_2"         default="base_frame_2"/>
+    <arg name="odom_2"               default="odom_2"/>
+
+
+    <group ns="$(arg camera_name_2)">
+        <include file="$(find zed_multicamera_example)/launch/include/zed_camera_mod_multi_tf.launch">
+            <arg name="camera_name"         value="$(arg camera_name_2)" />
+            <arg name="node_name"           value="$(arg node_name_2)" />
+            <arg name="camera_model"        value="$(arg camera_model_2)" />
+            <arg name="publish_urdf"        value="true" />
+            <arg name="publish_tf"          value="true" />
+            <arg name="camera_id"           value="1" />
+            <arg name="base_frame"          value="$(arg base_frame_2)" />
+            <arg name="odom"                value="$(arg odom_2)"/>
+            <arg name="cam_pos_x"           value="$(arg cam_pos_x_2)" />
+            <arg name="cam_pos_y"           value="$(arg cam_pos_y_2)" />
+            <arg name="cam_pos_z"           value="$(arg cam_pos_z_2)" />
+            <arg name="cam_roll"            value="$(arg cam_roll_2)" />
+            <arg name="cam_pitch"           value="$(arg cam_pitch_2)" />
+            <arg name="cam_yaw"             value="$(arg cam_yaw_2)" />
+        </include>
+    </group>
+
+<!-- Launch rivz display -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zed_multicamera_example)/rviz/multi_cam.rviz" output="screen" />
+</launch>
