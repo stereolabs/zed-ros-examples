@@ -145,7 +145,11 @@ void ZEDTestRGBDSync::readParameters() {
 
         if(!f.good()) {
             std::string cmd = "mkdir -p " + mSavePath;
-            system( cmd.c_str() );
+            int res = std::system( cmd.c_str() );
+            if(res!=0)
+            {
+                NODELET_ERROR_STREAM("Error creating save path: " << res );
+            }
         }
         // <---- Create folder if not existing
     }
