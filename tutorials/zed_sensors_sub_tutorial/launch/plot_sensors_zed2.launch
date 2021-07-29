@@ -30,9 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </include>
 
     <!-- Launch RQT Plot -->
-    <node name="PlotJuggler" 
+    <node name="plotjuggler" 
           pkg="plotjuggler" 
-          type="PlotJuggler" 
+          type="plotjuggler" 
           args="-n -l $(find zed_sensors_sub_tutorial)/cfg/$(arg camera_model).xml" 
           output="screen" 
     />

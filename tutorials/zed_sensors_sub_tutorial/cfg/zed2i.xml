@@ -5,48 +5,48 @@
    <plot row="0" col="0">
     <range left="86.169323" right="96.168960" bottom="-0.246024" top="10.056570"/>
     <limitY/>
-    <curve G="201" B="56" custom_transform="noTransform" R="26" name="/zed2/zed_node/imu/data/linear_acceleration/x"/>
-    <curve G="127" B="14" custom_transform="noTransform" R="255" name="/zed2/zed_node/imu/data/linear_acceleration/y"/>
-    <curve G="76" B="193" custom_transform="noTransform" R="241" name="/zed2/zed_node/imu/data/linear_acceleration/z"/>
+    <curve G="201" B="56" custom_transform="noTransform" R="26" name="/zed2i/zed_node/imu/data/linear_acceleration/x"/>
+    <curve G="127" B="14" custom_transform="noTransform" R="255" name="/zed2i/zed_node/imu/data/linear_acceleration/y"/>
+    <curve G="76" B="193" custom_transform="noTransform" R="241" name="/zed2i/zed_node/imu/data/linear_acceleration/z"/>
     <transform value="noTransform"/>
    </plot>
    <plot row="1" col="0">
     <range left="86.169323" right="96.168960" bottom="-0.026918" top="1.025039"/>
     <limitY/>
-    <curve G="103" B="189" custom_transform="noTransform" R="148" name="/zed2/zed_node/imu/data/orientation/w"/>
-    <curve G="190" B="207" custom_transform="noTransform" R="23" name="/zed2/zed_node/imu/data/orientation/x"/>
-    <curve G="189" B="34" custom_transform="noTransform" R="188" name="/zed2/zed_node/imu/data/orientation/y"/>
-    <curve G="119" B="180" custom_transform="noTransform" R="31" name="/zed2/zed_node/imu/data/orientation/z"/>
+    <curve G="103" B="189" custom_transform="noTransform" R="148" name="/zed2i/zed_node/imu/data/orientation/w"/>
+    <curve G="190" B="207" custom_transform="noTransform" R="23" name="/zed2i/zed_node/imu/data/orientation/x"/>
+    <curve G="189" B="34" custom_transform="noTransform" R="188" name="/zed2i/zed_node/imu/data/orientation/y"/>
+    <curve G="119" B="180" custom_transform="noTransform" R="31" name="/zed2i/zed_node/imu/data/orientation/z"/>
     <transform value="noTransform"/>
    </plot>
    <plot row="2" col="0">
     <range left="86.149572" right="96.146733" bottom="10.293482" top="10.294217"/>
     <limitY/>
-    <curve G="119" B="180" custom_transform="noTransform" R="31" name="/zed2/zed_node/atm_press/fluid_pressure"/>
+    <curve G="119" B="180" custom_transform="noTransform" R="31" name="/zed2i/zed_node/atm_press/fluid_pressure"/>
     <transform value="noTransform"/>
    </plot>
    <plot row="0" col="1">
     <range left="86.169323" right="96.168960" bottom="-0.006208" top="0.006010"/>
     <limitY/>
-    <curve G="39" B="40" custom_transform="noTransform" R="214" name="/zed2/zed_node/imu/data/angular_velocity/x"/>
-    <curve G="201" B="56" custom_transform="noTransform" R="26" name="/zed2/zed_node/imu/data/angular_velocity/y"/>
-    <curve G="127" B="14" custom_transform="noTransform" R="255" name="/zed2/zed_node/imu/data/angular_velocity/z"/>
+    <curve G="39" B="40" custom_transform="noTransform" R="214" name="/zed2i/zed_node/imu/data/angular_velocity/x"/>
+    <curve G="201" B="56" custom_transform="noTransform" R="26" name="/zed2i/zed_node/imu/data/angular_velocity/y"/>
+    <curve G="127" B="14" custom_transform="noTransform" R="255" name="/zed2i/zed_node/imu/data/angular_velocity/z"/>
     <transform value="noTransform"/>
    </plot>
    <plot row="1" col="1">
     <range left="86.171792" right="96.166491" bottom="-0.000001" top="0.000003"/>
     <limitY/>
-    <curve G="76" B="193" custom_transform="noTransform" R="241" name="/zed2/zed_node/imu/mag/magnetic_field/x"/>
-    <curve G="103" B="189" custom_transform="noTransform" R="148" name="/zed2/zed_node/imu/mag/magnetic_field/y"/>
-    <curve G="190" B="207" custom_transform="noTransform" R="23" name="/zed2/zed_node/imu/mag/magnetic_field/z"/>
+    <curve G="76" B="193" custom_transform="noTransform" R="241" name="/zed2i/zed_node/imu/mag/magnetic_field/x"/>
+    <curve G="103" B="189" custom_transform="noTransform" R="148" name="/zed2i/zed_node/imu/mag/magnetic_field/y"/>
+    <curve G="190" B="207" custom_transform="noTransform" R="23" name="/zed2i/zed_node/imu/mag/magnetic_field/z"/>
     <transform value="noTransform"/>
    </plot>
    <plot row="2" col="1">
     <range left="86.149572" right="96.168960" bottom="34.354999" top="34.984997"/>
     <limitY/>
-    <curve G="189" B="34" custom_transform="noTransform" R="188" name="/zed2/zed_node/imu/temperature/temperature"/>
-    <curve G="119" B="180" custom_transform="noTransform" R="31" name="/zed2/zed_node/temperature/left/temperature"/>
-    <curve G="39" B="40" custom_transform="noTransform" R="214" name="/zed2/zed_node/temperature/right/temperature"/>
+    <curve G="189" B="34" custom_transform="noTransform" R="188" name="/zed2i/zed_node/imu/temperature/temperature"/>
+    <curve G="119" B="180" custom_transform="noTransform" R="31" name="/zed2i/zed_node/temperature/left/temperature"/>
+    <curve G="39" B="40" custom_transform="noTransform" R="214" name="/zed2i/zed_node/temperature/right/temperature"/>
     <transform value="noTransform"/>
    </plot>
   </plotmatrix>
