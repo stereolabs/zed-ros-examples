@@ -15,7 +15,7 @@ is required to correctly execute the ROS node to acquire data from a Stereolabs 
 
 ### Prerequisites
 
-   - Ubuntu 16.04 or newer (Ubuntu 18 recommended)
+   - Ubuntu 18.04 or newer
    - [ZED SDK **≥ 3.0**](https://www.stereolabs.com/developers/) and its dependency [CUDA](https://developer.nvidia.com/cuda-downloads)
    - [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) or [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
 
@@ -35,15 +35,19 @@ Install the [zed-ros-examples](https://github.com/stereolabs/zed-ros-examples) p
 
 If you own a ZED camera launch:
 
-    $ roslaunch zed_display display_zed.launch
+    $ $ roslaunch zed_display_rviz display_zed.launch
 
 If you own a ZED Mini camera launch:
 
-    $ roslaunch zed_display display_zedm.launch
+    $ $ roslaunch zed_display_rviz display_zedm.launch
 
 If you own a ZED 2 camera launch:
 
-    $ roslaunch zed_display display_zed2.launch
+    $ roslaunch zed_display_rviz display_zed2.launch
+    
+If you own a ZED 2i camera launch:
+
+    $ roslaunch zed_display_rviz display_zed2i.launch    
 
 ![ZED rendering on Rviz](images/depthcloud-RGB.jpg)
 ![ZED rendering on Rviz](images/ZEDM-Rviz.jpg)
