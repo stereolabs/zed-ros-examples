@@ -12,8 +12,9 @@ Panels:
         - /Pose1/PoseWithCovariance1/Covariance1/Position1
         - /Pose1/PoseWithCovariance1/Covariance1/Orientation1
         - /Mapping1/Fused Pointcloud1
+        - /ZedOdDisplay1
       Splitter Ratio: 0.5
-    Tree Height: 500
+    Tree Height: 505
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -72,6 +73,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        zedm_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         zedm_camera_center:
           Alpha: 1
           Show Axes: false
@@ -110,6 +115,8 @@ Visualization Manager:
           Value: true
         odom:
           Value: true
+        zedm_base_link:
+          Value: true
         zedm_camera_center:
           Value: true
         zedm_imu_link:
@@ -122,6 +129,7 @@ Visualization Manager:
           Value: false
         zedm_right_camera_optical_frame:
           Value: false
+      Marker Alpha: 1
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
@@ -131,15 +139,16 @@ Visualization Manager:
         map:
           odom:
             base_link:
-              zedm_camera_center:
-                zedm_imu_link:
-                  {}
-                zedm_left_camera_frame:
-                  zedm_left_camera_optical_frame:
-                    {}
-                zedm_right_camera_frame:
-                  zedm_right_camera_optical_frame:
-                    {}
+              zedm_base_link:
+                zedm_camera_center:
+                  zedm_left_camera_frame:
+                    zedm_imu_link:
+                      {}
+                    zedm_left_camera_optical_frame:
+                      {}
+                  zedm_right_camera_frame:
+                    zedm_right_camera_optical_frame:
+                      {}
       Update Interval: 0
       Value: true
     - Class: rviz/Group
@@ -181,6 +190,7 @@ Visualization Manager:
               Left camera: true
               Right camera: true
               Value: false
+            ZedOdDisplay: true
           Zoom Factor: 1
         - Class: rviz/Image
           Enabled: false
@@ -225,9 +235,7 @@ Visualization Manager:
           Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 4096
           Min Color: 0; 0; 0
-          Min Intensity: 0
           Name: PointCloud2
           Position Transformer: XYZ
           Queue Size: 1
@@ -262,9 +270,7 @@ Visualization Manager:
           Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 4096
           Min Color: 0; 0; 0
-          Min Intensity: 0
           Name: DepthCloud
           Occlusion Compensation:
             Occlusion Time-Out: 30
@@ -339,6 +345,7 @@ Visualization Manager:
           Keep: 1
           Name: Odometry
           Position Tolerance: 0
+          Queue Size: 10
           Shape:
             Alpha: 1
             Axes Length: 0.10000000149011612
@@ -361,6 +368,7 @@ Visualization Manager:
           Head Length: 0.10000000149011612
           Head Radius: 0.05000000074505806
           Name: Pose
+          Queue Size: 10
           Shaft Length: 0.30000001192092896
           Shaft Radius: 0.019999999552965164
           Shape: Arrow
@@ -391,6 +399,7 @@ Visualization Manager:
           Head Length: 0.10000000149011612
           Head Radius: 0.05000000074505806
           Name: PoseWithCovariance
+          Queue Size: 10
           Shaft Length: 0.30000001192092896
           Shaft Radius: 0.019999999552965164
           Shape: Arrow
@@ -414,6 +423,7 @@ Visualization Manager:
             Z: 0
           Pose Color: 255; 25; 0
           Pose Style: Arrows
+          Queue Size: 10
           Radius: 0.029999999329447746
           Shaft Diameter: 0.009999999776482582
           Shaft Length: 0.05000000074505806
@@ -437,6 +447,7 @@ Visualization Manager:
             Z: 0
           Pose Color: 25; 255; 0
           Pose Style: Arrows
+          Queue Size: 10
           Radius: 0.029999999329447746
           Shaft Diameter: 0.009999999776482582
           Shaft Length: 0.05000000074505806
@@ -462,6 +473,7 @@ Visualization Manager:
           Class: rviz_imu_plugin/Imu
           Enabled: true
           Name: Imu
+          Queue Size: 10
           Topic: /zedm/zed_node/imu/data
           Unreliable: true
           Value: true
@@ -485,9 +497,7 @@ Visualization Manager:
           Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 4096
           Min Color: 0; 0; 0
-          Min Intensity: 0
           Name: Fused Pointcloud
           Position Transformer: XYZ
           Queue Size: 1
@@ -502,6 +512,20 @@ Visualization Manager:
           Value: true
       Enabled: true
       Name: Mapping
+    - Class: rviz_plugin_zed_od/ZedOdDisplay
+      Enabled: true
+      Joint Radius: 0.10000000149011612
+      Label Scale: 5
+      Link Size: 0.05000000074505806
+      Name: ZedOdDisplay
+      Queue Size: 1
+      Show Bounding Boxes: true
+      Show Labels: true
+      Show Skeletons: true
+      Topic: /zedm/zed_node/obj_det/objects
+      Transparency: 0.25
+      Unreliable: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -536,19 +560,19 @@ Visualization Manager:
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.23153351247310638
-        Y: 0.3821410536766052
-        Z: 0.3827539384365082
+        X: 0.41296032071113586
+        Y: -0.031009800732135773
+        Z: 0.2790673077106476
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4903983771800995
+      Pitch: 0.13039864599704742
       Target Frame: base_link
-      Value: Orbit (rviz)
-      Yaw: 2.950399398803711
+      Yaw: 3.320402145385742
     Saved: ~
 Window Geometry:
   Camera view:
@@ -563,10 +587,10 @@ Window Geometry:
     collapsed: false
   Height: 1025
   Hide Left Dock: false
-  Hide Right Dock: false
+  Hide Right Dock: true
   Left camera:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000015c000003a7fc0200000013fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000277000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000002400000010f0000000000000000fb0000000a0049006d006100670065000000028b000000c40000000000000000fb0000000a0049006d006100670065010000028a000000c50000000000000000fb0000000a0049006d00610067006500000002b30000009c0000000000000000fb0000000a0049006d006100670065010000028b000000c40000000000000000fb0000001600430061006d0065007200610020007600690065007701000002ba0000012a0000001600fffffffb00000012004400650070007400680020006d006100700200000242000000d5000001ea0000011dfb000000200043006f006e0066006900640065006e0063006500200069006d006100670065020000058200000087000001ea0000010cfb0000001c0043006f006e0066006900640065006e006300650020006d00610070020000058200000195000001ea0000010dfb00000016004c006500660074002000630061006d0065007200610200000245000002ee000001ea00000129fb0000001800520069006700680074002000630061006d0065007200610200000430000002ee000001ea00000129000000010000010f000003a7fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d000003a7000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073f00000040fc0100000002fb0000000800540069006d006500000000000000073f000002eb00fffffffb0000000800540069006d00650100000000000004500000000000000000000004d6000003a700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000015c000003abfc0200000013fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b0000027a000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000002400000010f0000000000000000fb0000000a0049006d006100670065000000028b000000c40000000000000000fb0000000a0049006d006100670065010000028a000000c50000000000000000fb0000000a0049006d00610067006500000002b30000009c0000000000000000fb0000000a0049006d006100670065010000028b000000c40000000000000000fb0000001600430061006d0065007200610020007600690065007701000002bb0000012b0000001600fffffffb00000012004400650070007400680020006d0061007002000002420000019300000280000001e0fb000000200043006f006e0066006900640065006e0063006500200069006d00610067006502000005000000019300000280000001e0fb0000001c0043006f006e0066006900640065006e006300650020006d0061007002000005000000019500000280000001e0fb00000016004c006500660074002000630061006d0065007200610200000245000002ee00000280000001e0fb0000001800520069006700680074002000630061006d0065007200610200000430000002ee00000280000001e0000000010000010f000003abfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b000003ab000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073f00000040fc0100000002fb0000000800540069006d006500000000000000073f0000042700fffffffb0000000800540069006d00650100000000000004500000000000000000000002d6000003ab00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Right camera:
     collapsed: false
   Selection:
@@ -576,7 +600,7 @@ Window Geometry:
   Tool Properties:
     collapsed: false
   Views:
-    collapsed: false
-  Width: 1869
-  X: 1971
-  Y: 27
+    collapsed: true
+  Width: 1080
+  X: 1920
+  Y: 0
