@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
+
 project(zed_obj_det_sub_tutorial)
+
+## Generate symbols for IDE indexer
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # if CMAKE_BUILD_TYPE is not specified, take 'Release' as default
 IF(NOT CMAKE_BUILD_TYPE)
