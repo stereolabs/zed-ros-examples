@@ -15,9 +15,9 @@ is required to correctly execute the ROS node to acquire data from a Stereolabs 
 
 ### Prerequisites
 
-   - Ubuntu 18.04 or newer
-   - [ZED SDK **≥ 3.0**](https://www.stereolabs.com/developers/) and its dependency [CUDA](https://developer.nvidia.com/cuda-downloads)
-   - [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) or [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
+   - Ubuntu 20.04
+   - [ZED SDK **≥ 4.0**](https://www.stereolabs.com/developers/) and its dependency [CUDA](https://developer.nvidia.com/cuda-downloads)
+   - [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
 ### Installation
 

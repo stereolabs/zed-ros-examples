@@ -35,12 +35,3 @@ The values associated to the above parameters are the following:
     <arg name="camera_info_topic"       default="zed_node/rgb/camera_info" />
     <arg name="depth_camera_info_topic" default="zed_node/depth/camera_info" />
 ```
-
-**Note**: the example as been tested using the packages `rtabmap v0.19.3` and `rtabmap_ros v0.19.3` available with the binary version of ROS Melodic. 
-To check the version of RTABmap currently installed on your system you can use the commands:
-`$ rosversion rtabmap`
-and
-`$ rosversion rtabmap_ros`
-
-
-
