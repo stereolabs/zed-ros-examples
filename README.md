@@ -15,7 +15,7 @@ This package is a collection of examples and tutorials to illustrate how to bett
 ### Prerequisites
 
 - Ubuntu 20.04
-- [ZED SDK **≥ 3.8**](https://www.stereolabs.com/developers/) and its dependency [CUDA](https://developer.nvidia.com/cuda-downloads)
+- [ZED SDK **≥**](https://www.stereolabs.com/developers/) and its dependency [CUDA](https://developer.nvidia.com/cuda-downloads)
 - [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
 
