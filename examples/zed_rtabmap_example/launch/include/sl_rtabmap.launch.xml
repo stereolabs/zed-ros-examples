@@ -27,7 +27,7 @@
     -->
 
     <!-- RTABmapviz -->
-    <node name="rtabmapviz" pkg="rtabmap_ros" type="rtabmapviz" output="screen" args="" launch-prefix="">    
+    <node name="rtabmap_viz" pkg="rtabmap_viz" type="rtabmap_viz" output="screen" args="" launch-prefix="">    
         <remap from="rgb/image"         to="$(arg rgb_topic)"/>
         <remap from="depth/image"       to="$(arg depth_topic)"/>
         <remap from="rgb/camera_info"   to="$(arg camera_info_topic)"/>
@@ -38,7 +38,7 @@
 
 
     <!-- RTABmap -->
-    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg args)" launch-prefix="">
+    <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" output="screen" args="$(arg args)" launch-prefix="">
         <rosparam command="load" file="$(find zed_rtabmap_example)/params/rtabmap.yaml" />
     
         <remap from="rgb/image"         to="$(arg rgb_topic)"/>
