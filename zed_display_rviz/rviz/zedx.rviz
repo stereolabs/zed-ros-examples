@@ -495,7 +495,7 @@ Visualization Manager:
             y_scale: 1
             z_scale: 1
           Class: rviz_imu_plugin/Imu
-          Enabled: true
+          Enabled: false
           Name: Imu
           Queue Size: 10
           Topic: /zedx/zed_node/imu/data
