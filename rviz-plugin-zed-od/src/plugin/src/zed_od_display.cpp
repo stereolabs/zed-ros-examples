@@ -153,7 +153,7 @@ void ZedOdDisplay::processMessage(const zed_interfaces::ObjectsStamped::ConstPtr
 
 void ZedOdDisplay::createOrUpdateObject(zed_interfaces::Object& obj)
 {
-  int16_t id = obj.label_id;
+  int16_t id = obj.instance_id;
   if (id == -1 && obj.tracking_available) // Not a valid ID?
   {
     return;
